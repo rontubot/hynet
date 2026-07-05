@@ -190,7 +190,7 @@
         </div>
         
         <!-- Cronograma de Actividades (Added sense per instructions) -->
-        <div class="mt-8 bg-white p-8 rounded-xl border border-outline-variant/30 shadow-sm">
+        <div class="mt-8 bg-surface-container p-8 rounded-xl border border-outline-variant/20 shadow-sm">
           <h2 class="text-xl font-black mb-6 tracking-tight flex items-center gap-2">
             <span class="material-symbols-outlined text-primary">calendar_month</span>
             Agenda &amp; Turnos Operativos (SOC)
@@ -230,7 +230,7 @@
       <!-- Sidebar Column -->
       <div class="lg:col-span-4 flex flex-col gap-8">
         <!-- Directorio Funcional -->
-        <div id="directorio-section" class="bg-on-surface text-surface p-8 rounded-xl shadow-md">
+        <div id="directorio-section" class="bg-slate-900 text-white p-8 rounded-xl shadow-md border border-outline-variant/10">
           <h2 class="text-xl font-black text-white mb-6 tracking-tight">Directorio Funcional</h2>
           <div class="relative mb-6">
             <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
@@ -292,7 +292,6 @@
       renderTasks();
       renderDirectory();
       checkSecurityRedirects();
-      setupInteractiveAnimations();
     });
 
     // Check if redirect has denied=true query
@@ -362,8 +361,7 @@
         else if (task.priority === "Completado") tagColor = "bg-emerald-500/10 text-emerald-600";
 
         const card = document.createElement("div");
-        card.className = "bg-surface-container-low p-6 rounded-lg border border-outline-variant/30 hover:shadow-md transition-shadow relative overflow-hidden bento-card border-none";
-        card.style.transition = "all 0.2s ease-in-out";
+        card.className = "bg-surface-container-low p-6 rounded-lg border border-outline-variant/30 hover:shadow-md transition-shadow relative overflow-hidden";
         
         card.innerHTML = `
           <div class="flex justify-between items-start mb-4">
@@ -440,19 +438,6 @@
 
     // Directory Search Hook
     document.getElementById("directorySearch").addEventListener("input", renderDirectory);
-
-    // Animation settings for elements
-    function setupInteractiveAnimations() {
-      // Micro-interaction for hover effects on cards
-      document.querySelectorAll('.bento-card').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-          card.style.transform = 'translateY(-4px)';
-        });
-        card.addEventListener('mouseleave', () => {
-          card.style.transform = 'translateY(0)';
-        });
-      });
-    }
   </script>
 </body>
 </html>

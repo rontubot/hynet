@@ -109,10 +109,7 @@ body {
 }
 
 /* Bento Card Style & Hover Glow Effects */
-.bento-card,
-[class*="bg-surface-container"],
-[class*="bg-white/60"],
-.p-6[class*="bg-"] {
+.bento-card, .hover-card-effect {
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
               box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
               border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
@@ -120,20 +117,14 @@ body {
   border: 1px solid var(--color-outline-variant);
 }
 
-.bento-card:hover,
-[class*="bg-surface-container"]:hover,
-[class*="bg-white/60"]:hover,
-.p-6[class*="bg-"]:hover {
+.bento-card:hover, .hover-card-effect:hover {
   transform: translateY(-6px) scale(1.008);
   border-color: rgba(25, 69, 140, 0.25);
   box-shadow: 0px 20px 45px rgba(25, 69, 140, 0.08), 
               0px 1px 3px rgba(25, 69, 140, 0.04);
 }
 
-.dark .bento-card:hover,
-.dark [class*="bg-surface-container"]:hover,
-.dark [class*="bg-white/60"]:hover,
-.dark .p-6[class*="bg-"]:hover {
+.dark .bento-card:hover, .dark .hover-card-effect:hover {
   border-color: rgba(137, 206, 255, 0.25);
   box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.45), 
               0px 0px 20px rgba(137, 206, 255, 0.06);
@@ -141,26 +132,24 @@ body {
 
 /* Premium Image Hover Zooms */
 .group img, img.hover-effect,
-[class*="bg-surface-container"] img,
-.bento-card img {
+.bento-card img, .hover-card-effect img {
   transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), 
               filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .group:hover img, img.hover-effect:hover,
-[class*="bg-surface-container"]:hover img,
-.bento-card:hover img {
+.bento-card:hover img, .hover-card-effect:hover img {
   transform: scale(1.08) rotate(0.4deg);
   filter: brightness(1.05) contrast(1.01);
 }
 
 /* Round Icons & Badges Rotation/Pulse */
 .bento-card .material-symbols-outlined,
-[class*="bg-surface-container"] .material-symbols-outlined,
+.hover-card-effect .material-symbols-outlined,
 .bento-card svg,
-[class*="bg-surface-container"] svg,
+.hover-card-effect svg,
 .bento-card [class*="rounded-full"],
-[class*="bg-surface-container"] [class*="rounded-full"] {
+.hover-card-effect [class*="rounded-full"] {
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
               background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
               color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
@@ -168,14 +157,14 @@ body {
 }
 
 .bento-card:hover .material-symbols-outlined,
-[class*="bg-surface-container"]:hover .material-symbols-outlined,
+.hover-card-effect:hover .material-symbols-outlined,
 .bento-card:hover svg,
-[class*="bg-surface-container"]:hover svg {
+.hover-card-effect:hover svg {
   transform: scale(1.2) rotate(4deg);
 }
 
 .bento-card:hover [class*="rounded-full"],
-[class*="bg-surface-container"]:hover [class*="rounded-full"] {
+.hover-card-effect:hover [class*="rounded-full"] {
   transform: scale(1.08);
   box-shadow: 0 4px 12px rgba(25, 69, 140, 0.15);
 }
