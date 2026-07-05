@@ -272,6 +272,12 @@
             </button>
           </form>
 
+          <!-- Quick Login Button -->
+          <button onclick="autofillAdmin()" class="w-full mt-4 bg-surface-container-high hover:bg-surface-dim text-on-surface-variant py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 border border-outline-variant/30 text-xs uppercase tracking-wider hover:scale-[1.02] active:scale-[0.98]" type="button">
+            <span class="material-symbols-outlined text-sm">admin_panel_settings</span>
+            Acceso Rápido: Administrador Demo
+          </button>
+
           <!-- Security warning banner -->
           <div class="mt-8 p-4 bg-red-500/5 border border-red-500/10 rounded-lg flex gap-4 items-start">
             <span class="material-symbols-outlined text-red-500">gavel</span>
@@ -305,6 +311,20 @@
   <script>
     let activeUserId = null;
     let currentStep = 1; // Step 1: Credentials, Step 2: MFA
+
+    window.autofillAdmin = function() {
+      document.getElementById("employeeId").value = "HYN-0001";
+      document.getElementById("password").value = "admin123";
+      
+      const form = document.getElementById("loginForm");
+      form.dispatchEvent(new Event('submit'));
+      
+      setTimeout(() => {
+        const otp = document.getElementById("mockOtpValue").textContent;
+        document.getElementById("otpCode").value = otp;
+        form.dispatchEvent(new Event('submit'));
+      }, 1450);
+    };
 
     // Password visibility toggle
     document.getElementById("togglePasswordBtn").addEventListener("click", () => {
