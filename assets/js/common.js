@@ -35,7 +35,7 @@ function setupMobileMenu() {
     if (actionBtn) {
       const clonedBtn = actionBtn.cloneNode(true);
       clonedBtn.className = "w-full text-center py-4 rounded-full font-label-caps text-label-caps " + 
-        (actionBtn.classList.contains("bg-primary") ? "bg-primary text-on-primary" : "bg-inverse-surface text-inverse-on-surface");
+        (actionBtn.classList.contains("bg-primary") ? "bg-primary text-on-primary" : "bg-slate-800 text-white");
       
       // If it is an anchor, preserve link
       if (actionBtn.tagName === "A") {
