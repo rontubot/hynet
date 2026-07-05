@@ -108,27 +108,131 @@ body {
   100% { transform: translateX(-50%); }
 }
 
-/* Bento Card Style */
-.bento-card {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.04);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Bento Card Style & Hover Glow Effects */
+.bento-card,
+[class*="bg-surface-container"],
+[class*="bg-white/60"],
+.p-6[class*="bg-"] {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--color-outline-variant);
 }
 
-.bento-card:hover {
-  transform: translateY(-4px) scale(1.005);
-  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.06);
+.bento-card:hover,
+[class*="bg-surface-container"]:hover,
+[class*="bg-white/60"]:hover,
+.p-6[class*="bg-"]:hover {
+  transform: translateY(-6px) scale(1.008);
+  border-color: rgba(25, 69, 140, 0.25);
+  box-shadow: 0px 20px 45px rgba(25, 69, 140, 0.08), 
+              0px 1px 3px rgba(25, 69, 140, 0.04);
+}
+
+.dark .bento-card:hover,
+.dark [class*="bg-surface-container"]:hover,
+.dark [class*="bg-white/60"]:hover,
+.dark .p-6[class*="bg-"]:hover {
+  border-color: rgba(137, 206, 255, 0.25);
+  box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.45), 
+              0px 0px 20px rgba(137, 206, 255, 0.06);
+}
+
+/* Premium Image Hover Zooms */
+.group img, img.hover-effect,
+[class*="bg-surface-container"] img,
+.bento-card img {
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover img, img.hover-effect:hover,
+[class*="bg-surface-container"]:hover img,
+.bento-card:hover img {
+  transform: scale(1.08) rotate(0.4deg);
+  filter: brightness(1.05) contrast(1.01);
+}
+
+/* Round Icons & Badges Rotation/Pulse */
+.bento-card .material-symbols-outlined,
+[class*="bg-surface-container"] .material-symbols-outlined,
+.bento-card svg,
+[class*="bg-surface-container"] svg,
+.bento-card [class*="rounded-full"],
+[class*="bg-surface-container"] [class*="rounded-full"] {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover .material-symbols-outlined,
+[class*="bg-surface-container"]:hover .material-symbols-outlined,
+.bento-card:hover svg,
+[class*="bg-surface-container"]:hover svg {
+  transform: scale(1.2) rotate(4deg);
+}
+
+.bento-card:hover [class*="rounded-full"],
+[class*="bg-surface-container"]:hover [class*="rounded-full"] {
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(25, 69, 140, 0.15);
+}
+
+/* Sleek Button Transitions & Lift */
+button, .btn-hover-effect {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button:hover, .btn-hover-effect:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+button:active, .btn-hover-effect:active {
+  transform: translateY(0);
+}
+
+/* Navbar Link Sleek Underline */
+header nav a {
+  position: relative;
+}
+
+header nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #19458C;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark header nav a::after {
+  background-color: #89ceff;
+}
+
+header nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 /* Custom Floating Animations */
 @keyframes subtle-float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-8px); }
 }
 
 .float-anim {
-  animation: subtle-float 5s ease-in-out infinite;
+  animation: subtle-float 6s ease-in-out infinite;
 }
 
 /* Page Transitions */
