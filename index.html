@@ -336,15 +336,15 @@
           <form class="grid grid-cols-1 md:grid-cols-2 gap-8" id="homeContactForm">
             <div class="space-y-2">
               <label class="font-label-caps text-xs text-slate-300 font-bold block ml-2">NOMBRE COMPLETO</label>
-              <input required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-primary focus:ring-1 focus:ring-primary text-white outline-none transition-all placeholder:text-slate-500" placeholder="Ej: Juan Pérez" type="text">
+              <input required id="homeContactName" name="name" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-primary focus:ring-1 focus:ring-primary text-white outline-none transition-all placeholder:text-slate-500" placeholder="Ej: Juan Pérez" type="text">
             </div>
             <div class="space-y-2">
               <label class="font-label-caps text-xs text-slate-300 font-bold block ml-2">EMAIL CORPORATIVO</label>
-              <input required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-primary focus:ring-1 focus:ring-primary text-white outline-none transition-all placeholder:text-slate-500" placeholder="email@empresa.com" type="email">
+              <input required id="homeContactEmail" name="email" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-primary focus:ring-1 focus:ring-primary text-white outline-none transition-all placeholder:text-slate-500" placeholder="email@empresa.com" type="email">
             </div>
             <div class="space-y-2 md:col-span-2">
               <label class="font-label-caps text-xs text-slate-300 font-bold block ml-2">MENSAJE</label>
-              <textarea required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-primary focus:ring-1 focus:ring-primary text-white outline-none transition-all placeholder:text-slate-500 resize-none" placeholder="Cuéntenos sobre sus desafíos tecnológicos..." rows="4"></textarea>
+              <textarea required id="homeContactMessage" name="message" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-primary focus:ring-1 focus:ring-primary text-white outline-none transition-all placeholder:text-slate-500 resize-none" placeholder="Cuéntenos sobre sus desafíos tecnológicos..." rows="4"></textarea>
             </div>
             <div class="md:col-span-2">
               <button class="w-full bg-primary hover:bg-primary-container text-white font-bold py-5 rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 shadow-lg shadow-primary/25" type="submit">
@@ -421,6 +421,10 @@
   </footer>
 
   <script>
+    // Configuration for real backend submission (Google Apps Script)
+    const GOOGLE_APPS_SCRIPT_URL = ""; // Paste your deployed Web App URL here
+    const SECRET_TOKEN = "HYNET_2026_SECURE_API";
+
     // Form Submission Interaction
     document.getElementById("homeContactForm").addEventListener("submit", (e) => {
       e.preventDefault();
@@ -429,7 +433,40 @@
       btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Enviando...';
       btn.disabled = true;
       
-      setTimeout(() => {
+      const payload = {
+        token: SECRET_TOKEN,
+        name: document.getElementById("homeContactName").value,
+        email: document.getElementById("homeContactEmail").value,
+        message: document.getElementById("homeContactMessage").value,
+        company: "",
+        country: "",
+        phone: ""
+      };
+
+      if (GOOGLE_APPS_SCRIPT_URL) {
+        fetch(GOOGLE_APPS_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        })
+        .then(() => {
+          showSuccessState();
+        })
+        .catch(err => {
+          console.error("Error submitting home form:", err);
+          alert("Hubo un error de conexión al enviar el mensaje. Sin embargo, su consulta ha sido simulada en el cliente.");
+          showSuccessState();
+        });
+      } else {
+        setTimeout(() => {
+          showSuccessState();
+        }, 1500);
+      }
+
+      function showSuccessState() {
         btn.innerHTML = '¡ENVIADO CORRECTAMENTE! <span class="material-symbols-outlined">done</span>';
         btn.className = btn.className.replace("bg-primary", "bg-emerald-600").replace("hover:bg-primary-container", "");
         
@@ -439,7 +476,7 @@
           btn.disabled = false;
           e.target.reset();
         }, 3000);
-      }, 1500);
+      }
     });
   </script>
 </body>

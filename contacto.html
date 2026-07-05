@@ -151,33 +151,33 @@
           <form class="grid grid-cols-1 md:grid-cols-2 gap-6" id="contactMainForm">
             <div class="flex flex-col gap-2">
               <label class="font-label-caps text-[10px] text-outline font-bold uppercase transition-colors">Nombre y Apellido</label>
-              <input required class="w-full px-6 py-4 rounded-full border border-outline-variant bg-surface-bright text-on-surface placeholder:text-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="Tu nombre completo" type="text">
+              <input required id="contactName" name="name" class="w-full px-6 py-4 rounded-full border border-outline-variant bg-surface-bright text-on-surface placeholder:text-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="Tu nombre completo" type="text">
             </div>
             <div class="flex flex-col gap-2">
               <label class="font-label-caps text-[10px] text-outline font-bold uppercase transition-colors">Empresa</label>
-              <input required class="w-full px-6 py-4 rounded-full border border-outline-variant bg-surface-bright text-on-surface placeholder:text-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="Nombre de tu organización" type="text">
+              <input required id="contactCompany" name="company" class="w-full px-6 py-4 rounded-full border border-outline-variant bg-surface-bright text-on-surface placeholder:text-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="Nombre de tu organización" type="text">
             </div>
             <div class="flex flex-col gap-2">
               <label class="font-label-caps text-[10px] text-outline font-bold uppercase transition-colors">País</label>
-              <select required class="w-full px-6 py-4 rounded-full border border-outline-variant bg-surface-bright text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none cursor-pointer">
+              <select required id="contactCountry" name="country" class="w-full px-6 py-4 rounded-full border border-outline-variant bg-surface-bright text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none cursor-pointer">
                 <option value="" disabled selected>Selecciona tu país</option>
-                <option value="AR">Argentina</option>
-                <option value="CO">Colombia</option>
-                <option value="US">Estados Unidos</option>
-                <option value="OT">Otro País</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+                <option value="Otro">Otro País</option>
               </select>
             </div>
             <div class="flex flex-col gap-2">
               <label class="font-label-caps text-[10px] text-outline font-bold uppercase transition-colors">Teléfono (Opcional)</label>
-              <input class="w-full px-6 py-4 rounded-full border border-outline-variant bg-surface-bright text-on-surface placeholder:text-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="+54..." type="tel">
+              <input id="contactPhone" name="phone" class="w-full px-6 py-4 rounded-full border border-outline-variant bg-surface-bright text-on-surface placeholder:text-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="+54..." type="tel">
             </div>
             <div class="flex flex-col gap-2 md:col-span-2">
               <label class="font-label-caps text-[10px] text-outline font-bold uppercase transition-colors">Email Corporativo</label>
-              <input required class="w-full px-6 py-4 rounded-full border border-outline-variant bg-surface-bright text-on-surface placeholder:text-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="correo@empresa.com" type="email">
+              <input required id="contactEmail" name="email" class="w-full px-6 py-4 rounded-full border border-outline-variant bg-surface-bright text-on-surface placeholder:text-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="correo@empresa.com" type="email">
             </div>
             <div class="flex flex-col gap-2 md:col-span-2">
               <label class="font-label-caps text-[10px] text-outline font-bold uppercase transition-colors">Mensaje</label>
-              <textarea required class="w-full px-6 py-4 rounded-xl border border-outline-variant bg-surface-bright text-on-surface placeholder:text-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none resize-none" placeholder="¿Cómo podemos colaborar en tu proyecto?" rows="4"></textarea>
+              <textarea required id="contactMessage" name="message" class="w-full px-6 py-4 rounded-xl border border-outline-variant bg-surface-bright text-on-surface placeholder:text-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none resize-none" placeholder="¿Cómo podemos colaborar en tu proyecto?" rows="4"></textarea>
             </div>
             <div class="md:col-span-2 pt-4">
               <button class="w-full md:w-auto px-12 py-4 bg-primary text-white font-bold rounded-full hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-lg shadow-primary/20 flex items-center justify-center gap-2" type="submit">
@@ -305,6 +305,10 @@
       });
     });
 
+    // Configuration for real backend submission (Google Apps Script)
+    const GOOGLE_APPS_SCRIPT_URL = ""; // Paste your deployed Web App URL here
+    const SECRET_TOKEN = "HYNET_2026_SECURE_API";
+
     // Form Submission Interaction
     document.getElementById('contactMainForm').addEventListener('submit', (e) => {
       e.preventDefault();
@@ -313,7 +317,43 @@
       btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Enviando mensaje...';
       btn.disabled = true;
       
-      setTimeout(() => {
+      // Extract form values
+      const payload = {
+        token: SECRET_TOKEN,
+        name: document.getElementById("contactName").value,
+        company: document.getElementById("contactCompany").value,
+        country: document.getElementById("contactCountry").value,
+        phone: document.getElementById("contactPhone").value,
+        email: document.getElementById("contactEmail").value,
+        message: document.getElementById("contactMessage").value
+      };
+
+      if (GOOGLE_APPS_SCRIPT_URL) {
+        // Submit to Google Apps Script Web App
+        fetch(GOOGLE_APPS_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        })
+        .then(() => {
+          showSuccessState();
+        })
+        .catch(err => {
+          console.error("Error submitting contact form:", err);
+          alert("Hubo un error de conexión al enviar el mensaje. Sin embargo, su consulta ha sido simulada en el cliente.");
+          showSuccessState();
+        });
+      } else {
+        // Fallback simulation (local offline mockup)
+        setTimeout(() => {
+          showSuccessState();
+        }, 1500);
+      }
+
+      function showSuccessState() {
         btn.innerHTML = '¡MENSAJE ENVIADO! <span class="material-symbols-outlined">done</span>';
         btn.className = btn.className.replace('bg-primary', 'bg-emerald-600').replace('shadow-primary/20', 'shadow-emerald-600/20');
         
@@ -323,7 +363,7 @@
           btn.disabled = false;
           e.target.reset();
         }, 3000);
-      }, 1500);
+      }
     });
   </script>
 </body>
