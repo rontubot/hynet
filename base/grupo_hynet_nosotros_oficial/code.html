@@ -1,0 +1,384 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Nosotros | Grupo Hynet</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700;800;900&amp;family=Manrope:wght@400;600&amp;family=JetBrains+Mono:wght@700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#5d5e61",
+                        "on-primary-container": "#fcfcff",
+                        "on-primary": "#ffffff",
+                        "outline": "#6f7881",
+                        "on-primary-fixed-variant": "#004c6e",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "secondary-fixed": "#e2e2e5",
+                        "surface-tint": "#006491",
+                        "surface-container-low": "#f2f4f6",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-fixed-dim": "#89ceff",
+                        "primary-fixed": "#c9e6ff",
+                        "surface-bright": "#f7f9fb",
+                        "tertiary-container": "#677689",
+                        "tertiary": "#4f5d70",
+                        "inverse-primary": "#89ceff",
+                        "surface-container-high": "#e6e8ea",
+                        "on-surface-variant": "#3e4850",
+                        "on-primary-fixed": "#001e2f",
+                        "on-surface": "#191c1e",
+                        "surface-container": "#eceef0",
+                        "primary": "#00628d",
+                        "on-background": "#191c1e",
+                        "outline-variant": "#bec8d1",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#c6c6c9",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#e2e2e5",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#d4e4fa",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-fixed": "#0d1c2d",
+                        "on-secondary-fixed-variant": "#454749",
+                        "surface": "#f7f9fb",
+                        "primary-container": "#007cb2",
+                        "on-secondary-container": "#636467",
+                        "inverse-surface": "#2d3133",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#b9c8de",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary-container": "#fdfcff",
+                        "on-tertiary-fixed-variant": "#39485a",
+                        "background": "#f7f9fb",
+                        "on-secondary-fixed": "#1a1c1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "grid-columns": "12",
+                        "container-padding": "24px",
+                        "section-gap": "80px",
+                        "gutter": "16px",
+                        "element-gap": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Manrope"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-md": ["Manrope"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-xl": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-xl": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.04em", "fontWeight": "800"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #f7f9fb;
+            color: #191c1e;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background">
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-on-surface/80 backdrop-blur-xl fixed top-0 w-full z-50">
+<div class="flex justify-between items-center px-container-padding py-4 max-w-full mx-auto">
+<div class="flex items-center gap-4">
+<img alt="Grupo Hynet Logo" class="h-8" src="https://lh3.googleusercontent.com/aida/AP1WRLtP7Ucuqlkq0Epapi081ZsTqatFyE_3ya1KwjDRqBIZU7HmFYjEK43_0ZOZISca1Xm3joDsffZjeYJPg2InOnS6HzDacoeIKLmptxr1I4r96QD-D5ITvJou9HXqVRNJjw1NDFiw2E6AvMvmHi7f6qdkOAtht1y3_gC_Px0GwqtFaHoU34hx27CGHWLGV-hmEb25MTHmkn2y2Bagos-hH_VSt8FjXfql74jjqluFwBwc3RrLMn-Bc0rp1Psp">
+
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Servicios</a>
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary font-body-md text-body-md" href="#">Nosotros</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Soluciones</a>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-bold hover:scale-105 transition-transform duration-200">Contact Us</button>
+</nav>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-primary">menu</span>
+</div>
+</div>
+</header>
+<main class="pt-24 overflow-x-hidden">
+<!-- Hero Section: Trayectoria & Innovación -->
+<section class="relative min-h-[70vh] flex items-center px-container-padding py-section-gap overflow-hidden">
+
+<div class="relative z-10 max-w-4xl mx-auto text-center md:text-left">
+<span class="inline-block font-label-caps text-label-caps text-primary border border-primary/20 px-4 py-1 rounded-full mb-6">Trayectoria &amp; Innovación</span>
+<h1 class="font-headline-xl text-headline-xl mb-8 leading-tight">Expertos en Soluciones Tecnológicas para <span class="text-primary">América Latina y EE.UU.</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-10">
+                    HYNET es una empresa argentina con más de 20 años de trayectoria brindando soluciones integrales en sistemas que optimizan el negocio de nuestros clientes.
+                </p>
+<div class="flex flex-col md:flex-row gap-4">
+<button class="bg-on-surface text-surface px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform">Nuestra Historia</button>
+<button class="bg-surface-container-high text-on-surface px-8 py-4 rounded-full font-bold hover:bg-surface-container-highest transition-colors">Ver Servicios</button>
+</div>
+</div>
+</section>
+<!-- Stats Grid -->
+<section class="px-container-padding -mt-12 mb-section-gap">
+<div class="max-w-7xl mx-auto bento-grid">
+<div class="col-span-12 md:col-span-4 glass-card p-10 rounded-xl flex flex-col items-center text-center opacity-100 translate-y-0">
+<span class="text-5xl font-black text-primary mb-2">+20</span>
+<span class="font-label-caps text-label-caps text-secondary">Años de Trayectoria</span>
+</div>
+<div class="col-span-12 md:col-span-4 glass-card p-10 rounded-xl flex flex-col items-center text-center opacity-100 translate-y-0">
+<span class="text-5xl font-black text-primary mb-2">3</span>
+<span class="font-label-caps text-label-caps text-secondary">Sedes Regionales</span>
+</div>
+<div class="col-span-12 md:col-span-4 glass-card p-10 rounded-xl flex flex-col items-center text-center opacity-100 translate-y-0">
+<span class="text-5xl font-black text-primary mb-2">100%</span>
+<span class="font-label-caps text-label-caps text-secondary">Compromiso Kaizen</span>
+</div>
+</div>
+</section>
+<!-- Nuestra Historia & Valores -->
+<section class="px-container-padding py-section-gap bg-surface-container-low">
+<div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-center">
+<div class="lg:w-1/2">
+<div class="relative rounded-xl overflow-hidden shadow-2xl">
+<img class="w-full aspect-[4/3] object-cover" data-alt="A cinematic, high-contrast photograph of a modern corporate meeting room in Buenos Aires with floor-to-ceiling windows overlooking a cityscape. Professionals are engaged in a strategic discussion around a large marble table. The lighting is crisp and cool, emphasizing a blue and slate-grey color palette that conveys authority and technical precision. The style is clean, minimalist, and authoritative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0lZjiaaiauNlbVfiqNX6Z34FMIGGWm9fJNHOqbeQ8gLfUsAwouhBPv7mjfS-kms6GdjPbTH-ak0UeI8gF151ZJPF0eyQHPk2osdcdukF259fGB0sF2OFTW5t8vosZZAN0rFvA3eT7GIEwqaD-nHH-lqsoThPxVYYfHu2rcUyil48YBBBAHw9497f9dZKKUlEzczeziWcKtFSH9KWWsMiU1MYhw2TwBAcpRFNcEEeP1uaehHjDWqcMz_M-qmnGTmsRylJfKFuMVxNX">
+</div>
+</div>
+<div class="lg:w-1/2">
+<h2 class="font-headline-lg text-headline-lg mb-8">Construyendo una Empresa de Sólido Renombre</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
+                        Desde nuestros orígenes trabajamos, diariamente, para construir una empresa referente en la industria de la TI. Nuestra identidad se forja a través de la excelencia y la búsqueda constante de la optimización del negocio de nuestros clientes.
+                    </p>
+<div class="space-y-8">
+<div class="flex items-start gap-4">
+<div class="bg-primary/10 p-3 rounded-lg">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Ética Empresarial</h4>
+<p class="text-on-surface-variant">Conducta transparente y responsable en cada una de nuestras operaciones.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary/10 p-3 rounded-lg">
+<span class="material-symbols-outlined text-primary">lightbulb</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Innovación Constante</h4>
+<p class="text-on-surface-variant">Implementación de las últimas tecnologías y metodologías del mercado global.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary/10 p-3 rounded-lg">
+<span class="material-symbols-outlined text-primary">handshake</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Compromiso Total</h4>
+<p class="text-on-surface-variant">Involucramiento profundo en el éxito de cada proyecto de nuestros socios.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Filosofía KAIZEN -->
+<section class="px-container-padding py-section-gap overflow-hidden">
+<div class="max-w-7xl mx-auto bg-on-surface rounded-xl p-12 md:p-20 text-surface relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10">
+
+</div>
+<div class="relative z-10 max-w-2xl">
+<span class="font-label-caps text-label-caps text-primary-fixed mb-4 inline-block">MÉTODO KAIZEN</span>
+<h2 class="font-headline-lg text-headline-lg mb-8 text-surface">Mejoramiento Continuo, Gradual y Ordenado</h2>
+<p class="font-body-lg text-body-lg text-surface-container-highest mb-12">
+                        Nuestra filosofía de trabajo se basa en el KAIZEN, un armonioso método aplicable a todo nivel: personal, social y en los negocios.
+                    </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="border-l-2 border-primary-fixed pl-6">
+<h3 class="font-black text-4xl mb-2">KAI (改)</h3>
+<p class="font-body-md text-surface-variant">La acción del cambio.</p>
+</div>
+<div class="border-l-2 border-primary-fixed pl-6">
+<h3 class="font-black text-4xl mb-2">ZEN (善)</h3>
+<p class="font-body-md text-surface-variant">Mejoramiento constante.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Cultura & Equipo -->
+<section class="px-container-padding py-section-gap bg-surface">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-4">Cultura &amp; Equipo</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Nuestro motor es el talento humano altamente especializado y apasionado por la tecnología.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-300 opacity-100 translate-y-0">
+<div class="h-80 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional portrait of a tech-focused team collaborating in a bright, modern office space. High-key lighting, shallow depth of field. The background shows blurred server racks and digital screens. The style is corporate-modern with a clean, high-contrast finish in shades of blue and white. 50-100 words prompt." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNK9ATkbURt9kQ03isT9xQzh1dyPokeYzOqIukzG5ERA3uaNAwAxwfR69PCXCvECUwXUfcTB0223MHqhm71wulF4BETzNpejpn00FByuu4FcX3D81tnuFSYvBMj5I5FOqkHQR40N9qYAL_gl2B_0uWY-Wv3foztr9Ocz_hEGqee3Sd6yfRb8C5B7Q9p7bCDyax49AgDb--QAhJaw-8VDt80hWbsgAde90rA6bf1SNtKUuoIbXjPYpJRWPBbRR0bxG2FzxhVAOoRGPs">
+</div>
+<div class="p-6">
+<h4 class="font-bold text-xl mb-2">Colaboración</h4>
+<p class="text-on-surface-variant text-sm">Fomentamos un ambiente de aprendizaje y crecimiento mutuo.</p>
+</div>
+</div>
+<div class="group overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-300 opacity-100 translate-y-0">
+<div class="h-80 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of a group of diverse tech professionals having a lighthearted conversation in a sleek, glass-walled breakroom. Bright natural light, contemporary design elements. The atmosphere is energetic and positive, reflecting a modern fintech company's vibrant culture. Cool tones and sharp focus. 50-100 words prompt." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWkbKfdsp9S-xm3_QFjtberI9ZbRLtcKYe9XS9-KmyAmW-hbMuSaN9To_9ogpP24r_i_Ncb04_uUbZ9B1xhs0nPH-wv46e2BFaXRW3FVRn1MdB90HMTtaC_urHPn-UoI7EoJBabHpkNQxZJ5hLYgb1Y4LQiKnE_ZG3vgDglrwNdIwPAVyx9kpWRP9pLisbXhFmvRhlgUcqQ6lKoh3yw7eP8HdPheFROoSk-z_K5W3AKjwJCLi2gDaMwiykaFhc6kqp3Xe9io8hJPen">
+</div>
+<div class="p-6">
+<h4 class="font-bold text-xl mb-2">Pasión por la TI</h4>
+<p class="text-on-surface-variant text-sm">Especialistas certificados en infraestructuras críticas y seguridad.</p>
+</div>
+</div>
+<div class="group overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-300 opacity-100 translate-y-0">
+<div class="h-80 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Wide shot of a modern, open-plan technology office in a high-rise building at dusk. Glowing blue screens and minimalist workstations are visible. The aesthetic is ultra-modern, high-contrast, and technically superior, evoking a sense of forward-thinking agility and reliability. 50-100 words prompt." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhjrovMlH1XZRzUzX6ZUT3owfbMI4eSklLaUvNcrGpWZVpjrXIAUiS_82Dg6T0QFToAjWfddeE9cKNgLhvL4ofmyxzN8TDS2Hcu5BBdoDgqCOp6kq5EbHU-kL72-PmUSyKnVdsxA69HgZp5qKtZWK6MAtSYYpPoRZcuv_ePTYYq1WUJP-1lMczJzEtyZb7VGO89JgcebO8mpxPkZvu8UANhN-chvLtq2es58gYspZOSVRIEc5151T7u2OABClilyMapa1pQ4uKsiWX">
+</div>
+<div class="p-6">
+<h4 class="font-bold text-xl mb-2">Excelencia</h4>
+<p class="text-on-surface-variant text-sm">Buscamos el perfeccionamiento en cada línea de código e implementación.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Liderazgo -->
+<section class="px-container-padding py-section-gap">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-xl">
+<h2 class="font-headline-lg text-headline-lg mb-4">Liderazgo Estratégico</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">La experiencia y visión que guían a Grupo Hynet hacia el futuro de la transformación digital.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Profile Card -->
+<div class="bg-white p-8 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center">
+<div class="w-24 h-24 rounded-full bg-surface-container-high mb-6 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a corporate executive with a confident expression. High-end lighting, minimalist dark grey background. The visual style is authoritative and sleek, consistent with high-growth fintech aesthetics. Clean, sharp lines and professional attire." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3gtKOpTGpf7w4h2udP9xZFDy5sDccMGT1G1XllBVUy3CGvMFhsxOvL_gBqlTdPcB_zw01m1PHoxaY1LCjWy5gfRPHtYm3sz-viRK62oVXJF6n9Q-a_AE8yjhHsd7kE2dzqLUZykifuxT2gjWzyyJd3XAXGfwH9fH32DT-BdO7le09PqDV3mwL1Uq8itdoXOEVquUsBacsqSZZfd-ELJGdh8JpdqBVBSFrNM191AlW_MFv4GpMTsm9aEalXhpg6TkC3YKclRu-oO3Q">
+</div>
+<h5 class="font-bold text-lg mb-1">Director General</h5>
+<p class="text-sm text-primary font-bold mb-4">Estrategia Global</p>
+<p class="text-xs text-on-surface-variant line-clamp-3">Liderando la expansión regional y la visión estratégica de la compañía por más de dos décadas.</p>
+</div>
+<!-- Profile Card -->
+<div class="bg-white p-8 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center">
+<div class="w-24 h-24 rounded-full bg-surface-container-high mb-6 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional studio portrait of a technology director in a modern corporate setting. Soft key lighting, neutral background. The image should convey deep technical expertise and leadership. High contrast and premium finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBotH-IzTpMml2aOns7kvevDRNaMXhx5lZp8wDBiJc9y4aeMb9UBOe5wUtcCcJGpQ2ptd6supDxj51CDq1NMKS_QLEf9xVUjqjFvhBKyh9LUyaHNz5X7xYnq7rlF78tFbZI0BKvdB2mdK0zMvTk4iOVzBkQxF6l08mZH9mqvG8-HEXAFD7tNAOQM3-GvNRbYKZEDAixGnSyuIl5eekLX4rZbTzmJYx4j2tir96ikyg3PEA4BNREZFdmE2xHQfhRa0dSlxr3mFpi34MR">
+</div>
+<h5 class="font-bold text-lg mb-1">Director Técnico</h5>
+<p class="text-sm text-primary font-bold mb-4">Ingeniería &amp; Innovación</p>
+<p class="text-xs text-on-surface-variant line-clamp-3">Arquitecto de soluciones complejas y responsable de la excelencia tecnológica en todas las sedes.</p>
+</div>
+<!-- Profile Card -->
+<div class="bg-white p-8 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center">
+<div class="w-24 h-24 rounded-full bg-surface-container-high mb-6 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up professional portrait of a female executive in the technology sector. Clean, modern aesthetic with high-key lighting. The style is approachable yet authoritative, representing corporate modern leadership. Precise and technical feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHqpSX0Y_G2_kfvKdtYB5r3OM-K8HCXL6MMWwtZ7WdIpHUE67y-ZlJAg-Bk9FXHTK3SG5ytPb43u9kNN45GthlscjOMRoODJrzcTz4yjV7WYEOOGNKKdKpUS7yKsUOvoetWz-mID68fFmCR65fKQ-he0X2FqmVN4aq6pjqJ95Rna1C-DopYN17hAcbieVkupPrGEUzlNqntP-t-hbTh_bcmSgkr8nxQm-WG_buB4h6cdu-bqPRAfoaeJ_qPLgEi5hZHNkOYiGOJVsZ">
+</div>
+<h5 class="font-bold text-lg mb-1">Directora de Operaciones</h5>
+<p class="text-sm text-primary font-bold mb-4">Gestión Regional</p>
+<p class="text-xs text-on-surface-variant line-clamp-3">Coordinación de operaciones en Argentina, Colombia y EE.UU. garantizando calidad Kaizen.</p>
+</div>
+<!-- Profile Card -->
+<div class="bg-white p-8 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center">
+<div class="w-24 h-24 rounded-full bg-surface-container-high mb-6 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a commercial director in a high-tech corporate office. The background is a slightly out-of-focus city view at night. Sophisticated lighting, sharp detail, professional and trustworthy expression. 50-100 words prompt." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQmLcbZdpx2p7FbtsV85UUKfhAiNEyFR1N4dqIOiXlKHjXvYsD7-WTDuwdIp7h-NF8Ku0R5RaGs2vaNjYEsl22gtHknsJyYJ7qfZfosIQgCeiQ-EKM7jugAGqkfD3m21Ae1Ns6ZxXtC-L3H0krliZxL89jouKfwLynPmUDrgARg3cJOhipu_mMMSQj4s-Wq7WKWdCcxLYiotmt5KX4uujI0NzHslS2Zoas9DikZ-GFdlMOM6yUCDiMRmoim4bUmH4cKLXNNf3x1sb9">
+</div>
+<h5 class="font-bold text-lg mb-1">Director Comercial</h5>
+<p class="text-sm text-primary font-bold mb-4">Relaciones Estratégicas</p>
+<p class="text-xs text-on-surface-variant line-clamp-3">Encargado de fortalecer las alianzas con socios tecnológicos y el éxito del negocio del cliente.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Global Footprint Map placeholder -->
+<section class="px-container-padding py-section-gap bg-on-surface text-surface">
+<div class="max-w-7xl mx-auto text-center">
+<h2 class="font-headline-lg text-headline-lg mb-4 text-surface">Presencia Global</h2>
+<p class="font-body-lg text-body-lg text-surface-container-highest mb-12">Desde Buenos Aires al mundo, conectando talento y tecnología.</p>
+<div class="rounded-xl overflow-hidden grayscale contrast-125 opacity-80 h-96">
+<img class="w-full h-full object-cover" data-alt="A stylized, high-contrast digital map showing connecting lines between Buenos Aires, Bogotá, and Florida. The map uses a dark carbon palette with glowing blue data points and vector-style topography. The mood is technical, global, and highly professional. 50-100 words prompt." data-location="Buenos Aires" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB5Vd_hv_eWsq4By2u1QGswvoa4HnTawSEnh22k5ulSWlHGmZI7nqZjjM6YgIrMT8NQSaAZMr1ji5cu_1lsoBbVPcQctOyMRswbkz28O73fVx2qC_FvQkUh6NU6yUIpqZWpvUrrQLbEeLrLuomyxYgfihX5kTbsPP61qQd_IEpGK1vxMbzFgcqaxNOdnsVSTAo0Z6wFdZqjrKtguqTnjrJdJcbITzw4pnZalKOUTum3PR5X5XKcirqK2Tk0T8rgNkNxQ2ts6pbxDsv">
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-on-surface dark:bg-surface-container-lowest text-surface dark:text-on-surface w-full rounded-t-lg">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-section-gap px-container-padding py-20 w-full max-w-7xl mx-auto">
+<div class="col-span-2">
+<div class="font-headline-lg text-headline-lg font-black text-surface dark:text-on-surface mb-6">GRUPO HYNET</div>
+<p class="font-body-md text-outline-variant mb-8 max-w-xs">Soluciones integrales de TI que optimizan el negocio de nuestros clientes en toda América.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h6 class="font-label-caps text-primary-fixed">EMPRESA</h6>
+<a class="text-outline-variant hover:text-surface transition-colors font-body-md" href="#">Nosotros</a>
+<a class="text-outline-variant hover:text-surface transition-colors font-body-md" href="#">Servicios</a>
+<a class="text-outline-variant hover:text-surface transition-colors font-body-md" href="#">Soporte</a>
+</div>
+<div class="flex flex-col gap-4">
+<h6 class="font-label-caps text-primary-fixed">LEGAL</h6>
+<a class="text-outline-variant hover:text-surface transition-colors font-body-md" href="#">Privacy Policy</a>
+<a class="text-outline-variant hover:text-surface transition-colors font-body-md" href="#">Security Standards</a>
+<a class="text-outline-variant hover:text-surface transition-colors font-body-md" href="#">Global Operations</a>
+</div>
+</div>
+<div class="border-t border-outline/10 px-container-padding py-8 flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto">
+<p class="font-body-md text-body-md opacity-50">© 2024 Grupo Hynet. Secure by Design.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="https://www.linkedin.com/company/hynet-s.a./">LinkedIn</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions and effects
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.glass-card, .group');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => {
+                card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+                observer.observe(card);
+            });
+        });
+    </script>
+</body></html>

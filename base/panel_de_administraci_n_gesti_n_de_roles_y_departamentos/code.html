@@ -1,0 +1,379 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Grupo Hynet | Gestión de Roles y Departamentos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700;800&amp;family=Manrope:wght@400;500;700&amp;family=JetBrains+Mono:wght@700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;family=Manrope:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#00628d",
+                    "surface-tint": "#006491",
+                    "surface-container": "#eceef0",
+                    "on-secondary-fixed": "#1a1c1e",
+                    "tertiary": "#4f5d70",
+                    "outline": "#6f7881",
+                    "on-primary-fixed": "#001e2f",
+                    "tertiary-fixed-dim": "#b9c8de",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#89ceff",
+                    "surface-bright": "#f7f9fb",
+                    "primary-fixed-dim": "#89ceff",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#c6c6c9",
+                    "on-secondary-container": "#636467",
+                    "on-primary-container": "#fcfcff",
+                    "surface-dim": "#d8dadc",
+                    "on-tertiary-fixed-variant": "#39485a",
+                    "inverse-surface": "#2d3133",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-container": "#e2e2e5",
+                    "surface-container-high": "#e6e8ea",
+                    "tertiary-fixed": "#d4e4fa",
+                    "on-primary": "#ffffff",
+                    "on-background": "#191c1e",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#bec8d1",
+                    "primary-fixed": "#c9e6ff",
+                    "background": "#f7f9fb",
+                    "secondary-fixed": "#e2e2e5",
+                    "on-tertiary-fixed": "#0d1c2d",
+                    "on-surface-variant": "#3e4850",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#191c1e",
+                    "surface": "#f7f9fb",
+                    "secondary": "#5d5e61",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary-container": "#fdfcff",
+                    "primary-container": "#007cb2",
+                    "on-secondary-fixed-variant": "#454749",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#677689",
+                    "on-primary-fixed-variant": "#004c6e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding": "24px",
+                    "grid-columns": "12",
+                    "gutter": "16px",
+                    "section-gap": "80px",
+                    "element-gap": "16px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Manrope"],
+                    "label-caps": ["JetBrains Mono"],
+                    "headline-xl": ["Hanken Grotesk"],
+                    "body-md": ["Manrope"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "headline-xl": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #f7f9fb;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .bento-card {
+            background: #ffffff;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .bento-card:hover {
+            transform: scale(1.01);
+            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-background/80 dark:bg-background/80 backdrop-blur-xl">
+<div class="flex justify-between items-center h-20 px-container-padding max-w-full mx-auto">
+<div class="flex items-center gap-3 cursor-pointer active:scale-95 transition-all"></div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:scale-[1.02] transition-transform duration-200" href="#">Networking</a>
+<a class="text-on-surface-variant hover:scale-[1.02] transition-transform duration-200" href="#">Hybrid Cloud</a>
+<a class="text-on-surface-variant hover:scale-[1.02] transition-transform duration-200" href="#">Cybersecurity</a>
+<a class="text-primary font-bold border-b-2 border-primary py-1" href="#">Admin Panel</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden border-2 border-primary/10">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate IT administrator, shot in high-key lighting with a clean, minimalist office background. The lighting is soft and modern, reflecting a high-growth fintech aesthetic with crisp whites and professional blues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa5ANPQEKnvBbgFyJ3HY2ZO_iWmHGyusk8O2N7ddMGdEAog5iVOcfHsvb8QFBA-f3AF2MNjMrsjhDWu1zVdk54T7fVQM-Hy6imBll6TdR-qlv4xbkTdbJR5YjLltugsdsAhJyLQPe8AJP7_o8R4Z4iQLeCKcPf_L6XDoFswsaQ-2ukXoghtMbZfzElt-n9_AmP3O58BG5BTMjnUxnka58zN22rWosGXv-aIBP1niWW1ZEwiIxtkM4m7OGkxC_aeYXPNl5WjS5haV1z">
+</div>
+</div>
+</div>
+</header>
+<div class="flex pt-20">
+<!-- NavigationDrawer (Desktop Sidebar) -->
+<aside class="hidden lg:flex flex-col w-80 h-[calc(100vh-80px)] sticky top-20 bg-surface-container-highest p-4 shadow-sm">
+<div class="mb-8 px-4">
+
+<p class="text-on-surface-variant text-sm mt-1">Gestión de Acceso Centralizada</p>
+</div>
+<nav class="space-y-1">
+<div class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-full cursor-pointer transition-all">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-body-md">Usuarios y Roles</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-primary/10 rounded-full cursor-pointer transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+<span class="font-body-md">Departamentos</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-primary/10 rounded-full cursor-pointer transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-body-md">Permisos</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-primary/10 rounded-full cursor-pointer transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-body-md">Registros de Auditoría</span>
+</div>
+</nav>
+<div class="mt-auto p-4 bg-primary/5 rounded-xl border border-primary/10">
+<span class="label-caps text-primary block mb-2 font-bold text-[10px]">ESTADO DEL SISTEMA</span>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#00F0FF] animate-pulse"></span>
+<span class="text-xs font-medium text-primary">Sincronización Activa</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-container-padding py-10 max-w-7xl mx-auto w-full">
+<!-- Page Header Section -->
+<section class="mb-section-gap">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="font-label-caps text-label-caps text-primary uppercase mb-2 block">ADMINISTRACIÓN</span>
+<h2 class="font-headline-xl text-headline-xl text-on-background">Panel de Roles y Departamentos</h2>
+<p class="text-body-lg text-on-surface-variant mt-2 max-w-2xl">Gestione la estructura jerárquica y el acceso a los recursos críticos de la infraestructura de Grupo Hynet.</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-high text-on-surface px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:scale-[1.02] transition-all active:scale-95">
+<span class="material-symbols-outlined text-xl" data-icon="category">category</span>
+                            Gestionar Departamentos
+                        </button>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:scale-[1.02] transition-all active:scale-95 shadow-md">
+<span class="material-symbols-outlined text-xl" data-icon="person_add">person_add</span>
+                            Agregar Nuevo Rol
+                        </button>
+</div>
+</div>
+</section>
+<!-- Search & Filters Bento -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-element-gap mb-10">
+<div class="md:col-span-8 bg-white p-6 bento-card rounded-xl flex items-center gap-4">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-body-md placeholder:text-outline-variant" placeholder="Buscar por nombre de usuario, email o ID..." type="text">
+</div>
+<div class="md:col-span-4 bg-white p-6 bento-card rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="filter_list">filter_list</span>
+<span class="font-body-md font-bold">Filtrar Departamento</span>
+</div>
+<select class="bg-transparent border-none focus:ring-0 text-primary font-bold cursor-pointer">
+<option>Todos</option>
+<option>Ciberseguridad</option>
+<option>Networking</option>
+<option>Infraestructura</option>
+<option>Soporte Técnico</option>
+</select>
+</div>
+</section>
+<!-- User Table Section -->
+<section class="bento-card bg-white rounded-xl overflow-hidden mb-section-gap">
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/20">
+<th class="px-6 py-4 font-label-caps text-label-caps text-outline">USUARIO</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-outline">ESTADO</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-outline">DEPARTAMENTO</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-outline">ROL</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-outline text-right">ACCIONES</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10"><!-- Row 1: Alejandro Martínez -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+    <td class="px-6 py-5">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">AM</div>
+            <div>
+                <p class="font-bold text-on-surface">Alejandro Martínez</p>
+                <p class="text-xs text-on-surface-variant">a.martinez@hynet.net</p>
+            </div>
+        </div>
+    </td>
+    <td class="px-6 py-5">
+        <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Activo</span>
+    </td>
+    <td class="px-6 py-5">
+        <span class="text-body-md font-medium px-3 py-1 bg-primary/5 text-primary rounded-full border border-primary/10">Soporte</span>
+    </td>
+    <td class="px-6 py-5">
+        <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm text-on-surface-variant">support_agent</span>
+            <span class="text-body-md">Técnico</span>
+        </div>
+    </td>
+    <td class="px-6 py-5 text-right">
+        <button class="text-primary font-bold hover:underline flex items-center justify-end gap-1 ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+            <span class="material-symbols-outlined text-lg">edit</span>
+            Editar
+        </button>
+    </td>
+</tr>
+<!-- Row 2: Elena Rodríguez -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+    <td class="px-6 py-5">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">ER</div>
+            <div>
+                <p class="font-bold text-on-surface">Elena Rodríguez</p>
+                <p class="text-xs text-on-surface-variant">e.rodriguez@hynet.net</p>
+            </div>
+        </div>
+    </td>
+    <td class="px-6 py-5">
+        <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Activo</span>
+    </td>
+    <td class="px-6 py-5">
+        <span class="text-body-md font-medium px-3 py-1 bg-primary/5 text-primary rounded-full border border-primary/10">Marketing</span>
+    </td>
+    <td class="px-6 py-5">
+        <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm text-on-surface-variant">campaign</span>
+            <span class="text-body-md">Especialista</span>
+        </div>
+    </td>
+    <td class="px-6 py-5 text-right">
+        <button class="text-primary font-bold hover:underline flex items-center justify-end gap-1 ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+            <span class="material-symbols-outlined text-lg">edit</span>
+            Editar
+        </button>
+    </td>
+</tr>
+<!-- Row 3: Javier Gómez -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+    <td class="px-6 py-5">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">JG</div>
+            <div>
+                <p class="font-bold text-on-surface">Javier Gómez</p>
+                <p class="text-xs text-on-surface-variant">j.gomez@hynet.net</p>
+            </div>
+        </div>
+    </td>
+    <td class="px-6 py-5">
+        <span class="px-3 py-1 bg-surface-variant text-on-surface-variant text-xs font-bold rounded-full">Inactivo</span>
+    </td>
+    <td class="px-6 py-5">
+        <span class="text-body-md font-medium px-3 py-1 bg-primary/5 text-primary rounded-full border border-primary/10">Implementaciones</span>
+    </td>
+    <td class="px-6 py-5">
+        <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm text-on-surface-variant">settings_suggest</span>
+            <span class="text-body-md">Ingeniero</span>
+        </div>
+    </td>
+    <td class="px-6 py-5 text-right">
+        <button class="text-primary font-bold hover:underline flex items-center justify-end gap-1 ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+            <span class="material-symbols-outlined text-lg">edit</span>
+            Editar
+        </button>
+    </td>
+</tr>
+<!-- Row 4: Lucía Fernández -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+    <td class="px-6 py-5">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">LF</div>
+            <div>
+                <p class="font-bold text-on-surface">Lucía Fernández</p>
+                <p class="text-xs text-on-surface-variant">l.fernandez@hynet.net</p>
+            </div>
+        </div>
+    </td>
+    <td class="px-6 py-5">
+        <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Activo</span>
+    </td>
+    <td class="px-6 py-5">
+        <span class="text-body-md font-medium px-3 py-1 bg-primary/5 text-primary rounded-full border border-primary/10">Administración</span>
+    </td>
+    <td class="px-6 py-5">
+        <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm text-on-surface-variant">admin_panel_settings</span>
+            <span class="text-body-md">Administrador</span>
+        </div>
+    </td>
+    <td class="px-6 py-5 text-right">
+        <button class="text-primary font-bold hover:underline flex items-center justify-end gap-1 ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+            <span class="material-symbols-outlined text-lg">edit</span>
+            Editar
+        </button>
+    </td>
+</tr>
+<!-- Row 5: Ricardo Díaz -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+    <td class="px-6 py-5">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">RD</div>
+            <div>
+                <p class="font-bold text-on-surface">Ricardo Díaz</p>
+                <p class="text-xs text-on-surface-variant">r.diaz@hynet.net</p>
+            </div>
+        </div>
+    </td>
+    <td class="px-6 py-5">
+        <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Activo</span>
+    </td>
+    <td class="px-6 py-5">
+        <span class="text-body-md font-medium px-3 py-1 bg-primary/5 text-primary rounded-full border border-primary/10">Soporte</span>
+    </td>
+    <td class="px-6 py-5">
+        <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm text-on-surface-variant">support_agent</span>
+            <span class="text-body-md">Técnico</span>
+        </div>
+    </td>
+    <td class="px-6 py-5 text-right">
+        <button class="text-primary font-bold hover:underline flex items-center justify-end gap-1 ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+            <span class="material-symbols-outlined text-lg">edit</span>
+            Editar
+        </button>
+    </td>
+</tr></tbody></table></div></section></main></div>
+
+</body></html>

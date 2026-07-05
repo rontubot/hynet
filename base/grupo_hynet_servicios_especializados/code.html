@@ -1,0 +1,429 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Servicios Especializados | Grupo Hynet</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700;800;900&amp;family=Manrope:wght@400;500;600&amp;family=JetBrains+Mono:wght@700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #00628d, #00F0FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bento-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .bento-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .networking-orbit {
+            animation: orbit 20s linear infinite;
+        }
+
+        @keyframes orbit {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#0d1c2d",
+                        "tertiary-container": "#677689",
+                        "on-error-container": "#93000a",
+                        "primary": "#00628d",
+                        "on-tertiary-fixed-variant": "#39485a",
+                        "outline-variant": "#bec8d1",
+                        "primary-fixed-dim": "#89ceff",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary-fixed": "#d4e4fa",
+                        "on-secondary-fixed-variant": "#454749",
+                        "error": "#ba1a1a",
+                        "secondary": "#5d5e61",
+                        "secondary-container": "#e2e2e5",
+                        "surface-container-highest": "#e0e3e5",
+                        "secondary-fixed-dim": "#c6c6c9",
+                        "on-tertiary-container": "#fdfcff",
+                        "on-surface-variant": "#3e4850",
+                        "surface": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#e2e2e5",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary-fixed-variant": "#004c6e",
+                        "background": "#f7f9fb",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed": "#1a1c1e",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary-container": "#636467",
+                        "surface-tint": "#006491",
+                        "outline": "#6f7881",
+                        "on-surface": "#191c1e",
+                        "on-primary-container": "#fcfcff",
+                        "surface-container-high": "#e6e8ea",
+                        "tertiary": "#4f5d70",
+                        "inverse-surface": "#2d3133",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-fixed": "#001e2f",
+                        "primary-fixed": "#c9e6ff",
+                        "primary-container": "#007cb2",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "tertiary-fixed-dim": "#b9c8de",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#89ceff",
+                        "surface-container": "#eceef0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding": "24px",
+                        "gutter": "16px",
+                        "section-gap": "80px",
+                        "element-gap": "16px",
+                        "grid-columns": "12"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-xl": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "headline-xl": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-lg": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl transition-all duration-300 bg-surface/95 shadow-sm">
+<div class="flex justify-between items-center px-container-padding py-4 max-w-full mx-auto">
+<div class="flex items-center gap-4">
+<img alt="Grupo Hynet Logo" class="h-10 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLtP7Ucuqlkq0Epapi081ZsTqatFyE_3ya1KwjDRqBIZU7HmFYjEK43_0ZOZISca1Xm3joDsffZjeYJPg2InOnS6HzDacoeIKLmptxr1I4r96QD-D5ITvJou9HXqVRNJjw1NDFiw2E6AvMvmHi7f6qdkOAtht1y3_gC_Px0GwqtFaHoU34hx27CGHWLGV-hmEb25MTHmkn2y2Bagos-hH_VSt8FjXfql74jjqluFwBwc3RrLMn-Bc0rp1Psp">
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-medium" href="#">Inicio</a>
+<a class="text-primary font-bold border-b-2 border-primary" href="#">Servicios</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-medium" href="#">Networking</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-medium" href="#">Ciberseguridad</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-medium" href="#">Sobre Nosotros</a>
+</nav>
+<button class="bg-primary hover:scale-105 active:scale-95 transition-all text-on-primary px-6 py-2 rounded-full font-bold">
+                Contact Us
+            </button>
+</div>
+</header>
+<main class="mt-20">
+<!-- Hero Section: Specialized Services -->
+<section class="relative min-h-[70vh] flex items-center pt-20 px-container-padding overflow-hidden">
+
+<div class="max-w-6xl mx-auto w-full relative z-10 grid md:grid-cols-2 gap-12 items-center">
+<div class="space-y-6">
+<span class="font-label-caps text-label-caps text-primary px-4 py-2 bg-primary/10 rounded-full">SOLUCIONES DE ALTO RENDIMIENTO</span>
+<h1 class="font-headline-xl text-headline-xl leading-tight">
+                        Servicios <span class="text-gradient">Gestionados 24/7</span> &amp; Soporte Técnico Avanzado
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Garantizamos la continuidad operativa de su negocio mediante monitoreo proactivo y respuesta inmediata. Especialistas en infraestructuras críticas y entornos de alta disponibilidad.
+                    </p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:scale-105 transition-transform">
+                            Ver Capacidades <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<div class="flex items-center gap-3 px-6 py-4 bg-surface-container-high rounded-xl">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</span>
+<span class="font-bold text-on-surface">SOC/NOC Online</span>
+</div>
+</div>
+</div>
+<div class="relative hidden md:block">
+<div class="w-full aspect-square rounded-xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="High-tech network operations center with glowing blue screens and data visualizations. Professional technicians are monitoring enterprise server infrastructure in a dark, ultra-modern environment with sleek glass panels. The mood is highly technical and secure, emphasizing 24/7 availability and advanced monitoring." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs1dWhQL7o9mooOZkAr5I9sHe0j8pnjgJHiQ6lV4M0UP0AiU2dJMyAxMSM93_aOZfErsMynN4ADFk_pVe02nTnW2ccu3lZq7kGu13Od-5fJmjs-itq4I6I0vkuF-pEA0MJJbh_AjmYF1yYI9JG9JRC2faCWfmcTc4097GTDGoqC5h3dgLqt__Bg0YGpQOAapmPys-xM8vfpZM9xraHdrG6UNU6xyzNPqw_yibMkW4QxBP9uTIKMFZsy1pFgMWQAnB4rWQ8DjBLFx4I">
+</div>
+<div class="absolute -bottom-6 -left-6 bg-surface-container-lowest p-6 rounded-lg shadow-xl border border-outline-variant/20 max-w-[200px]">
+<span class="material-symbols-outlined text-primary text-4xl mb-2">verified_user</span>
+<p class="font-bold text-on-surface text-sm">99.9% Uptime Garantizado</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Managed Services & Support Bento -->
+<section class="py-section-gap px-container-padding bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-4 text-left">24/7 Managed Services</h2>
+<p class="text-on-surface-variant max-w-2xl text-left">Más que soporte, somos su socio tecnológico estratégico. Operamos bajo estándares globales de seguridad y eficiencia.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- High Availability -->
+<div class="md:col-span-2 bg-surface-container-lowest p-8 rounded-xl bento-card border border-outline-variant/10 flex flex-col md:flex-row gap-8 items-center">
+<div class="flex-1">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">settings_input_component</span>
+<h3 class="font-headline-lg text-headline-lg mb-4">Alta Disponibilidad</h3>
+<p class="text-on-surface-variant mb-6">Implementación de clusters y redundancia geográfica para asegurar que sus servicios nunca se detengan, sin importar la carga de trabajo.</p>
+<ul class="space-y-3">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Balanceo de Carga Global</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Disaster Recovery Plan (DRP)</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Replicación de Datos en Tiempo Real</li>
+</ul>
+</div>
+<div class="w-full md:w-1/2 h-64 rounded-lg overflow-hidden bg-on-surface">
+<img class="w-full h-full object-cover opacity-80" data-alt="A clean, futuristic server room aisle with glowing blue and white LEDs on server racks. The perspective shot creates a sense of depth and scale, illustrating high-density computing and infrastructure excellence. Soft ambient occlusion lighting emphasizes a professional, high-end enterprise IT environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPIxxaASbOkGNjw70_N2bjn-DiaVc2crdq1vyE-M_u7bKIQDUYU-o_vHP0N7AMLpxsaLwWsyb2yJcM6hLxDzS7fy73fcNxidKtStHubSSOg65wglrdFBpKweasRARNvX7WScLSxl_BmOGxxQJNVZlW5Gb2qwSO49YZo63IIpF4myPVY3u2NoB9vjikdRcvDTeKtvL30LwMM3o66YDpJu5H_aBB00eiMbxL98DQZ7I5EyT8gvkItHNqOUYM6kT98skmipeCrRUhcV-r">
+</div>
+</div>
+<!-- Technical Support -->
+<div class="bg-primary p-8 rounded-xl bento-card text-on-primary relative overflow-hidden group">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-on-primary text-4xl mb-4">headset_mic</span>
+<h3 class="font-headline-lg text-headline-lg mb-4">Soporte Técnico Especializado</h3>
+<p class="text-primary-fixed mb-8">Ingenieros certificados disponibles en todo momento para resolver incidentes críticos de nivel 1, 2 y 3.</p>
+<div class="p-4 bg-on-primary-fixed-variant rounded-lg">
+<span class="font-label-caps text-on-primary">SLA DE RESPUESTA</span>
+<div class="text-3xl font-black mt-1"> &lt; 15 MIN</div>
+</div>
+</div>
+<div class="absolute -right-10 -bottom-10 opacity-20 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[180px]">support_agent</span>
+</div>
+</div>
+<!-- Infrastructure -->
+<div class="bg-surface-container-lowest p-8 rounded-xl bento-card border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">dns</span>
+<h3 class="font-headline-lg text-headline-lg mb-4">Infraestructura Core</h3>
+<p class="text-on-surface-variant">Gestión integral de centros de datos, servidores físicos y virtualización con VMware y Hyper-V.</p>
+</div>
+<!-- Cloud Computing -->
+<div class="bg-surface-container-lowest p-8 rounded-xl bento-card border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">cloud</span>
+<h3 class="font-headline-lg text-headline-lg mb-4">Cloud Computing</h3>
+<p class="text-on-surface-variant">Migración y gestión de nubes híbridas, AWS, Azure y Google Cloud con enfoque en optimización de costos.</p>
+</div>
+<!-- Cyber Security -->
+<div class="bg-on-surface p-8 rounded-xl bento-card text-surface">
+<span class="material-symbols-outlined text-primary-fixed-dim text-4xl mb-4">security</span>
+<h3 class="font-headline-lg text-headline-lg mb-4">Ciberseguridad</h3>
+<p class="text-outline-variant">Protección perimetral avanzada, detección de intrusos (IDS/IPS) y respuesta ante incidentes cibernéticos.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Networking Expertise -->
+<section class="py-section-gap px-container-padding bg-on-surface text-surface relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+<div class="w-full h-full border-[1px] border-primary-fixed-dim rounded-full networking-orbit translate-x-1/2 translate-y-0"></div>
+<div class="w-2/3 h-2/3 border-[1px] border-primary-fixed-dim rounded-full networking-orbit translate-x-1/2 translate-y-1/4" style="animation-direction: reverse; animation-duration: 30s;"></div>
+</div>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div>
+<span class="font-label-caps text-primary-fixed-dim tracking-widest">NETWORKING MASTERY</span>
+<h2 class="font-headline-xl text-headline-xl mt-4 mb-8">Arquitecturas de Red de Próxima Generación</h2>
+<p class="font-body-lg text-body-lg text-outline-variant mb-10">
+                            Diseñamos e implementamos redes escalables y seguras. Nuestra alianza estratégica con líderes mundiales nos permite entregar soluciones de misión crítica con el máximo respaldo.
+                        </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="p-6 bg-surface-container-lowest/5 rounded-xl border border-surface/10 backdrop-blur-sm">
+<div class="flex items-center gap-3 mb-4">
+<span class="w-8 h-8 rounded bg-primary flex items-center justify-center text-xs font-bold">F5</span>
+<span class="font-bold">F5 Networks</span>
+</div>
+<p class="text-sm text-outline-variant">Especialistas en BIG-IP, entrega de aplicaciones, seguridad WAF y gestión de tráfico avanzado.</p>
+</div>
+<div class="p-6 bg-surface-container-lowest/5 rounded-xl border border-surface/10 backdrop-blur-sm">
+<div class="flex items-center gap-3 mb-4">
+<span class="w-8 h-8 rounded bg-primary flex items-center justify-center text-xs font-bold">JN</span>
+<span class="font-bold">Juniper Networks</span>
+</div>
+<p class="text-sm text-outline-variant">Ingeniería de routing, switching de alto rendimiento y redes definidas por software (SDN).</p>
+</div>
+<div class="p-6 bg-surface-container-lowest/5 rounded-xl border border-surface/10 backdrop-blur-sm">
+<div class="flex items-center gap-3 mb-4">
+<span class="w-8 h-8 rounded bg-primary flex items-center justify-center text-xs font-bold">PA</span>
+<span class="font-bold">Palo Alto Networks</span>
+</div>
+<p class="text-sm text-outline-variant">Firewalls de próxima generación (NGFW) y seguridad integrada para nubes y redes empresariales.</p>
+</div>
+<div class="p-6 bg-surface-container-lowest/5 rounded-xl border border-surface/10 backdrop-blur-sm">
+<div class="flex items-center gap-3 mb-4">
+<span class="w-8 h-8 rounded bg-primary flex items-center justify-center text-xs font-bold">HY</span>
+<span class="font-bold">Hynet Core</span>
+</div>
+<p class="text-sm text-outline-variant">Optimización propietaria para entornos híbridos y automatización de red inteligente.</p>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-4">
+<div class="h-48 rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Macro photography of professional network equipment inside a data center, focusing on optical fiber connections with vibrant blue LED activity lights. The background shows blurred server racks, creating a high-tech, precise, and professional atmosphere. The lighting is cold and clinical, typical of a modern tech hub." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ7XJV8UTRqyyiAZYwptiaZa1ZxD4svLWGooc0fFNZiy40zkRvO7Yp7hnC-BoWXrHUwBOwO-cF_QnHrQI4crdi1T8L4_ROE57xMVCVVVhwhNpszbn8-KXytLDupvR3_f2a9RYpbI9Znj_nNlp7E1_75Zi9VihuMDRI4I_Wep7wlUckBsi5K20ZVctwhzcH1Yg-wSr5STCtdFWeUH9mMgxMIdiZgc0uQIAzdQgO4_fQ_fH3LQ0yLhbIajZNvhR65_7ladbu-odeOJfR">
+</div>
+<div class="h-64 rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="A close-up of a Palo Alto Networks firewall or similar enterprise networking appliance, showing the sleek industrial design and interface ports. The environment is a clean, modern data center. The image conveys robust security, reliability, and cutting-edge hardware technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn3D3PET93Z9VnpJsuuBKCJ8Gl9IAxKSJZvlFeVM4FVHO9GxG6OtjOKN8yJi0ck6ZECDOlW7ODQN23FMgRmEd1jO6MkHmPJdwR2FbGVaOMBxEoQMJhWfZqcmCbwf0KVEH6PCCugj2LfaQAn67CBcFwLohfPl7gmQEf5QIoYB70mCtbngcUjJPnnUWsSwOQjYEkxTEbmsqXnwORMp6Ig5-EUslMjGzAZaHdBDJ0zDjTfAGTpsnVm9SaURDjhFgIDMvds9hBkmVvkT2g">
+</div>
+</div>
+<div class="space-y-4 pt-12">
+<div class="h-64 rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Detailed view of high-speed network cabling neatly arranged in a server rack, showcasing professional cable management and networking expertise. Blue and yellow ethernet cables create a rhythmic pattern. The style is clean, enterprise-grade, and emphasizes technical excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6JGSP2GzFW4z-SumQs0CCSVu3RWl9LIJMegkQQ-mkGnF2YPwWTpVSwbMlwpn27EzrLLLaffUr7KekD7mzgKPqvWYqLlGQIvlKErypSXslFtQ9TWvpvhLC-NG24Bz9X1BXOyl3UM9AHAdWHh47HkJtRzKlQ2-akRaNdyYDugOGbBPne7s4BhiPr-c09xLw9g4GW2IeLh-UlrWteCw3MJl-7IFmOobx0VNPsGct6gABzKG4zoOD3LvwjzoscNXzP6MLgZtd9aFgKY1u">
+</div>
+<div class="h-48 rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="A futuristic visualization of a global network mesh with data points connecting across a digital map. The style uses glowing lines and nodes in electric blue on a dark background, representing global connectivity and large-scale networking operations." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgRRtOVPD8WC6Kig7fpmOS2nKto_xAiPF7JbJ3zLGL6ydfAhR17x6ZPx2U0oM9mYVugD2UMDoy3wZJSYY0FzFzbY-Zo71aTSfEQWe9g5ta2r2ySAX1w7GFpQ-7ITZJtbDSteq9h-_8NfM6PAcHQmEkJLcn9nfUOzno0QJepC-RG84mMGHlyySz0sxPa45SHHXwWhUk_Og5Il-queIh6de4BEa1ENKh1sKRqPMrgIroHllE2SXO_fa13Fam4_PY947CZxMuDuDZWaA0">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-20 px-container-padding bg-surface">
+<div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+<div class="scroll-reveal active">
+<div class="font-headline-xl text-headline-xl text-primary">500+</div>
+<div class="font-label-caps text-on-surface-variant">Proyectos Exitosos</div>
+</div>
+<div class="scroll-reveal active" style="transition-delay: 0.1s;">
+<div class="font-headline-xl text-headline-xl text-primary">24/7</div>
+<div class="font-label-caps text-on-surface-variant">Monitoreo Activo</div>
+</div>
+<div class="scroll-reveal active" style="transition-delay: 0.2s;">
+<div class="font-headline-xl text-headline-xl text-primary">99.9%</div>
+<div class="font-label-caps text-on-surface-variant">Nivel de SLA</div>
+</div>
+<div class="scroll-reveal active" style="transition-delay: 0.3s;">
+<div class="font-headline-xl text-headline-xl text-primary">150+</div>
+<div class="font-label-caps text-on-surface-variant">Certificaciones PRO</div>
+</div>
+</div>
+</section>
+<!-- Final CTA: No Form, Direct Value -->
+<section class="py-section-gap px-container-padding">
+<div class="max-w-7xl mx-auto bg-primary rounded-xl overflow-hidden relative">
+
+<div class="relative z-10 p-12 md:p-20 text-center flex flex-col items-center">
+<h2 class="font-headline-xl text-headline-xl text-on-primary mb-6">Impulse su infraestructura hoy</h2>
+<p class="font-body-lg text-body-lg text-primary-fixed mb-12 max-w-2xl">
+                        Nuestros ingenieros están listos para analizar su entorno y proponer la arquitectura que su negocio merece. Sin interrupciones, sin riesgos.
+                    </p>
+<div class="flex flex-wrap justify-center gap-6">
+<button class="bg-on-primary text-primary px-10 py-5 rounded-xl font-black text-lg hover:scale-105 active:scale-95 transition-all shadow-xl">
+                            HABLAR CON UN INGENIERO
+                        </button>
+<button class="bg-transparent border-2 border-on-primary text-on-primary px-10 py-5 rounded-xl font-black text-lg hover:bg-on-primary/10 transition-all">
+                            VER CASOS DE ÉXITO
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-on-surface dark:bg-surface-container-lowest w-full rounded-t-lg">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-section-gap px-container-padding py-20 w-full text-surface max-w-7xl mx-auto">
+<div class="col-span-2 md:col-span-1">
+<img alt="Grupo Hynet Logo" class="h-12 mb-6 brightness-0 invert" src="https://lh3.googleusercontent.com/aida/AP1WRLtP7Ucuqlkq0Epapi081ZsTqatFyE_3ya1KwjDRqBIZU7HmFYjEK43_0ZOZISca1Xm3joDsffZjeYJPg2InOnS6HzDacoeIKLmptxr1I4r96QD-D5ITvJou9HXqVRNJjw1NDFiw2E6AvMvmHi7f6qdkOAtht1y3_gC_Px0GwqtFaHoU34hx27CGHWLGV-hmEb25MTHmkn2y2Bagos-hH_VSt8FjXfql74jjqluFwBwc3RrLMn-Bc0rp1Psp">
+<p class="text-outline-variant text-sm pr-8">
+                    Soluciones tecnológicas líderes en Networking, Ciberseguridad y Cloud. Secure by Design.
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-lg mb-2">Servicios</h4>
+<a class="text-outline-variant hover:text-surface transition-colors hover:underline decoration-primary-fixed decoration-2 underline-offset-4" href="#">Managed Services</a>
+<a class="text-outline-variant hover:text-surface transition-colors hover:underline decoration-primary-fixed decoration-2 underline-offset-4" href="#">Cyber Security</a>
+<a class="text-outline-variant hover:text-surface transition-colors hover:underline decoration-primary-fixed decoration-2 underline-offset-4" href="#">Cloud Computing</a>
+<a class="text-outline-variant hover:text-surface transition-colors hover:underline decoration-primary-fixed decoration-2 underline-offset-4" href="#">Infrastructure</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-lg mb-2">Compañía</h4>
+<a class="text-outline-variant hover:text-surface transition-colors hover:underline decoration-primary-fixed decoration-2 underline-offset-4" href="#">About Us</a>
+<a class="text-outline-variant hover:text-surface transition-colors hover:underline decoration-primary-fixed decoration-2 underline-offset-4" href="#">Client Portal</a>
+<a class="text-outline-variant hover:text-surface transition-colors hover:underline decoration-primary-fixed decoration-2 underline-offset-4" href="#">Global Operations</a>
+<a class="text-outline-variant hover:text-surface transition-colors hover:underline decoration-primary-fixed decoration-2 underline-offset-4" href="#">Security Standards</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-lg mb-2">Legal</h4>
+<a class="text-outline-variant hover:text-surface transition-colors hover:underline decoration-primary-fixed decoration-2 underline-offset-4" href="#">Privacy Policy</a>
+<a class="text-outline-variant hover:text-surface transition-colors hover:underline decoration-primary-fixed decoration-2 underline-offset-4" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="px-container-padding py-8 border-t border-surface/10 text-center text-outline-variant text-xs">
+            © 2024 Grupo Hynet. Secure by Design.
+        </div>
+</footer>
+<script>
+        // Simple Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // Header Background on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('bg-surface/95', 'shadow-sm');
+            } else {
+                header.classList.remove('bg-surface/95', 'shadow-sm');
+            }
+        });
+    </script>
+</body></html>

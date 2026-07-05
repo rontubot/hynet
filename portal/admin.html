@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Panel de Roles y Departamentos | GRUPO HYNET</title>
+  <script>
+    if (localStorage.getItem("hynet_theme") === "dark") {
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
+    }
+  </script>
+  
+  <!-- CSS Stylesheets -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Material Icons & Google Font fallback (Inter variable is loaded locally via style.css) -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&amp;display=swap" rel="stylesheet">
+  
+  <!-- Core Scripts -->
+  <script src="../assets/js/db.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/common.js"></script>
+  
+  <script>
+    // Route guard: only super_admin can enter
+    if (!window.HynetAuth.getCurrentUser()) {
+      window.location.href = "login.html";
+    } else if (window.HynetAuth.getCurrentUser().roleKey !== "super_admin") {
+      // Add audit log for unauthorized entry attempt
+      const u = window.HynetAuth.getCurrentUser();
+      window.HynetDB.addAuditLog(u.id, u.name, "Intento de Intrusión", "El usuario intentó entrar manualmente a admin.html sin poseer privilegios.", "Bloqueado");
+      window.location.href = "dashboard.html?denied=true";
+    }
+  </script>
+  
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#19458C", // Official brand color
+            "primary-container": "#1D5BB5",
+            "surface-tint": "#19458C",
+            "on-secondary-container": "#636467",
+            "on-surface-variant": "var(--color-on-surface-variant)",
+            "on-error-container": "#93000a",
+            "outline-variant": "var(--color-outline-variant)",
+            "on-primary-fixed": "#001e2f",
+            "surface-dim": "var(--color-surface-dim)",
+            "surface-container": "var(--color-surface-container)",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#39485a",
+            "secondary": "#5d5e61",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#fdfcff",
+            "surface-bright": "var(--color-surface-bright)",
+            "tertiary-fixed-dim": "#b9c8de",
+            "on-surface": "var(--color-on-surface)",
+            "tertiary-container": "#677689",
+            "outline": "var(--color-outline)",
+            "surface-container-highest": "var(--color-surface-container-highest)",
+            "background": "var(--color-background)",
+            "surface-container-high": "var(--color-surface-container-high)",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed": "#0d1c2d",
+            "on-primary-container": "#fcfcff",
+            "inverse-surface": "var(--color-inverse-surface)",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#e2e2e5",
+            "on-primary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "secondary-fixed-dim": "#c6c6c9",
+            "surface-container-lowest": "var(--color-surface-container-lowest)",
+            "primary-fixed": "#c9e6ff",
+            "on-secondary-fixed-variant": "#454749",
+            "inverse-primary": "#89ceff",
+            "tertiary": "#4f5d70",
+            "primary-fixed-dim": "#89ceff",
+            "secondary-container": "#e2e2e5",
+            "surface-container-low": "var(--color-surface-container-low)",
+            "on-primary-fixed-variant": "#004c6e",
+            "on-secondary-fixed": "#1a1c1e",
+            "surface": "var(--color-surface)",
+            "tertiary-fixed": "#d4e4fa",
+            "on-background": "var(--color-on-background)",
+            "surface-variant": "var(--color-surface-container-highest)",
+            "inverse-on-surface": "var(--color-inverse-on-surface)"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "grid-columns": "12",
+            "container-padding": "24px",
+            "gutter": "16px",
+            "element-gap": "16px",
+            "section-gap": "80px"
+          },
+          "fontFamily": {
+            "sans": ["Inter", "sans-serif"],
+            "body": ["Inter", "sans-serif"],
+            "label-caps": ["JetBrains Mono"],
+            "headline-xl": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-lg-mobile": ["Inter"],
+            "body-md": ["Inter"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+
+  <!-- TopAppBar -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/30 glass-nav">
+    <div class="flex justify-between items-center h-20 px-6 max-w-full mx-auto">
+      <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='../index.html'">
+        <img src="../assets/images/Logo-Hynet25-Color_100px.png" alt="GRUPO HYNET" class="h-10 w-auto object-contain">
+      </div>
+      <nav class="hidden md:flex items-center gap-8">
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" href="dashboard.html">Dashboard</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" href="dashboard.html#directorio-section">Directorio</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-semibold" href="dashboard.html#accesos-section">Recursos</a>
+        <a class="text-primary font-bold border-b-2 border-primary py-1" href="#">Panel Admin</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <span class="text-xs font-label-caps font-bold text-outline">L. FERNÁNDEZ</span>
+        <button onclick="window.HynetAuth.logout()" class="text-xs bg-inverse-surface hover:bg-black text-white px-4 py-2 rounded-full font-bold">Cerrar Sesión</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex pt-20 flex-grow">
+    <!-- NavigationDrawer (Desktop Sidebar) -->
+    <aside class="hidden lg:flex flex-col w-80 h-[calc(100vh-80px)] sticky top-20 bg-surface-container-highest p-4 shadow-sm border-r border-outline-variant/25">
+      <div class="mb-8 px-4">
+        <h4 class="font-bold text-sm uppercase text-primary">Gobernanza RBAC</h4>
+        <p class="text-on-surface-variant text-xs mt-1">Gestión de Acceso Centralizada</p>
+      </div>
+      <nav class="space-y-1" id="sidebarTabs">
+        <button onclick="switchTab('users')" id="tabBtn-users" class="w-full flex items-center gap-3 px-4 py-3 bg-primary text-white rounded-full text-left font-bold transition-all">
+          <span class="material-symbols-outlined">group</span>
+          <span class="text-sm">Usuarios y Roles</span>
+        </button>
+        <button onclick="switchTab('logs')" id="tabBtn-logs" class="w-full flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-primary/10 rounded-full text-left font-bold transition-colors">
+          <span class="material-symbols-outlined">history</span>
+          <span class="text-sm">Logs de Auditoría</span>
+        </button>
+        <button onclick="alert('Simulación: Configuración de Departamentos (Solo lectura en Demo)')" class="w-full flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-primary/10 rounded-full text-left font-bold transition-colors">
+          <span class="material-symbols-outlined">hub</span>
+          <span class="text-sm">Departamentos</span>
+        </button>
+        <button onclick="alert('Simulación: Políticas de Permisos (Privilegios Mínimos)')" class="w-full flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-primary/10 rounded-full text-left font-bold transition-colors">
+          <span class="material-symbols-outlined">verified_user</span>
+          <span class="text-sm">Permisos</span>
+        </button>
+      </nav>
+      <div class="mt-auto p-4 bg-primary/5 rounded-xl border border-primary/10">
+        <span class="label-caps text-primary block mb-2 font-bold text-[10px]">ESTADO DEL SOC</span>
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="text-xs font-semibold text-primary">Sincronización Activa</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Canvas -->
+    <main class="flex-grow px-6 py-10 max-w-7xl mx-auto w-full">
+      <!-- Page Header Section -->
+      <section class="mb-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <span class="font-label-caps text-xs text-primary uppercase mb-2 block font-bold tracking-widest">SÚPER ADMINISTRADOR</span>
+            <h2 class="text-3xl md:text-5xl font-black text-on-background tracking-tight">Panel de Roles y Departamentos</h2>
+            <p class="text-sm md:text-base text-on-surface-variant mt-2 max-w-2xl">
+              Gestione la estructura jerárquica, asigne privilegios de acceso y audite actividades del portal.
+            </p>
+          </div>
+          <div class="flex gap-3">
+            <button onclick="alert('Simulación: Agregar departamento nuevo')" class="bg-surface-container-high text-on-surface px-5 py-3 rounded-full font-bold flex items-center gap-2 hover:scale-[1.02] transition-all text-xs">
+              <span class="material-symbols-outlined text-base">category</span>
+              Gestionar Deptos
+            </button>
+            <button onclick="alert('Simulación: Agregar rol nuevo')" class="bg-primary hover:bg-primary-container text-white px-5 py-3 rounded-full font-bold flex items-center gap-2 hover:scale-[1.02] transition-all text-xs shadow-md">
+              <span class="material-symbols-outlined text-base">person_add</span>
+              Agregar Nuevo Rol
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: Users Tab -->
+      <div id="view-users" class="space-y-6">
+        <!-- Search & Filters Bento -->
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-4">
+          <div class="md:col-span-8 bg-white p-4 bento-card rounded-xl flex items-center gap-3">
+            <span class="material-symbols-outlined text-outline">search</span>
+            <input id="userSearchInput" class="w-full bg-transparent border-none focus:ring-0 text-sm placeholder:text-outline-variant outline-none" placeholder="Buscar por nombre, email o ID..." type="text">
+          </div>
+          <div class="md:col-span-4 bg-white p-4 bento-card rounded-xl flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-xl">filter_list</span>
+              <span class="text-xs font-bold text-on-surface">Departamento</span>
+            </div>
+            <select id="deptFilter" class="bg-transparent border-none focus:ring-0 text-xs font-bold text-primary cursor-pointer outline-none">
+              <option value="Todos">Todos</option>
+              <option value="Administración">Administración</option>
+              <option value="Gerencia">Gerencia</option>
+              <option value="Soporte">Soporte</option>
+              <option value="Ciberseguridad">Ciberseguridad</option>
+              <option value="Implementaciones">Implementaciones</option>
+            </select>
+          </div>
+        </section>
+
+        <!-- User Table Section -->
+        <section class="bento-card bg-white rounded-xl overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead>
+                <tr class="bg-surface-container-low border-b border-outline-variant/20">
+                  <th class="px-6 py-4 font-label-caps text-[10px] text-outline font-bold">USUARIO</th>
+                  <th class="px-6 py-4 font-label-caps text-[10px] text-outline font-bold">ESTADO</th>
+                  <th class="px-6 py-4 font-label-caps text-[10px] text-outline font-bold">DEPARTAMENTO</th>
+                  <th class="px-6 py-4 font-label-caps text-[10px] text-outline font-bold">ROL</th>
+                  <th class="px-6 py-4 font-label-caps text-[10px] text-outline font-bold text-right">ACCIONES</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-outline-variant/10" id="userTableBody">
+                <!-- Dynamically populated rows -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <!-- VIEW: Logs Tab (Audit logs) -->
+      <div id="view-logs" class="hidden space-y-6">
+        <section class="bento-card bg-white rounded-xl overflow-hidden">
+          <div class="px-6 py-4 bg-surface-container-low border-b border-outline-variant/20 flex justify-between items-center">
+            <span class="font-label-caps text-xs text-primary font-black uppercase">REGISTRO DE ACCESOS Y ALERTAS (SOC)</span>
+            <button onclick="clearAuditLogs()" class="text-xs text-red-600 hover:text-red-800 font-bold">Limpiar Historial</button>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead>
+                <tr class="bg-surface-container-low border-b border-outline-variant/20">
+                  <th class="px-4 py-3 font-label-caps font-bold text-outline">FECHA / HORA</th>
+                  <th class="px-4 py-3 font-label-caps font-bold text-outline">USUARIO</th>
+                  <th class="px-4 py-3 font-label-caps font-bold text-outline">ACCIÓN</th>
+                  <th class="px-4 py-3 font-label-caps font-bold text-outline">DETALLES</th>
+                  <th class="px-4 py-3 font-label-caps font-bold text-outline">ESTADO</th>
+                  <th class="px-4 py-3 font-label-caps font-bold text-outline">IP ORIGEN</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-outline-variant/10 font-mono" id="logsTableBody">
+                <!-- Dynamically populated logs -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- EDIT USER MODAL (Premium feature for real feel) -->
+  <div id="editModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-xl max-w-md w-full p-8 shadow-2xl border border-black/5 animate-fade-in">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-xl font-black text-on-surface">Editar Privilegios</h3>
+        <button onclick="closeModal()" class="text-outline hover:text-on-surface"><span class="material-symbols-outlined">close</span></button>
+      </div>
+      <form id="editUserForm" class="space-y-4">
+        <input type="hidden" id="editUserId">
+        
+        <div>
+          <label class="block text-xs font-label-caps font-bold text-outline mb-2">NOMBRE Y APELLIDO</label>
+          <input disabled id="editUserName" class="w-full px-4 py-3 bg-surface-container-low border-transparent rounded-full text-sm font-semibold outline-none" type="text">
+        </div>
+        
+        <div>
+          <label class="block text-xs font-label-caps font-bold text-outline mb-2">DEPARTAMENTO</label>
+          <select id="editUserDept" class="w-full px-4 py-3 bg-surface-container-low border-transparent rounded-full text-sm font-bold outline-none cursor-pointer">
+            <option value="Administración">Administración</option>
+            <option value="Gerencia">Gerencia</option>
+            <option value="Soporte">Soporte</option>
+            <option value="Ciberseguridad">Ciberseguridad</option>
+            <option value="Implementaciones">Implementaciones</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-label-caps font-bold text-outline mb-2">ROL EN SISTEMA</label>
+          <select id="editUserRole" class="w-full px-4 py-3 bg-surface-container-low border-transparent rounded-full text-sm font-bold outline-none cursor-pointer">
+            <option value="Súper Administrador">Súper Administrador</option>
+            <option value="Director de Operaciones">Director de Operaciones</option>
+            <option value="Técnico Especialista">Técnico Especialista</option>
+            <option value="Auditor de Ciberseguridad">Auditor de Ciberseguridad</option>
+            <option value="Ingeniero de Sistemas">Ingeniero de Sistemas</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-label-caps font-bold text-outline mb-2">ESTADO DE CUENTA</label>
+          <select id="editUserStatus" class="w-full px-4 py-3 bg-surface-container-low border-transparent rounded-full text-sm font-bold outline-none cursor-pointer">
+            <option value="Activo">Activo (Acceso permitido)</option>
+            <option value="Inactivo">Inactivo (Acceso revocado)</option>
+          </select>
+        </div>
+
+        <div class="pt-4 flex gap-3">
+          <button type="button" onclick="closeModal()" class="flex-1 bg-surface-container-high text-on-surface font-bold py-3.5 rounded-full text-sm hover:bg-surface-dim">Cancelar</button>
+          <button type="submit" class="flex-1 bg-primary text-white font-bold py-3.5 rounded-full text-sm hover:bg-primary-container">Guardar Cambios</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let activeTab = "users";
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderUsersTable();
+      renderLogsTable();
+      setupFilters();
+    });
+
+    // Tab Switching
+    function switchTab(tab) {
+      activeTab = tab;
+      
+      const views = ["users", "logs"];
+      views.forEach(v => {
+        const viewEl = document.getElementById(`view-${v}`);
+        const btnEl = document.getElementById(`tabBtn-${v}`);
+        
+        if (v === tab) {
+          viewEl.classList.remove("hidden");
+          btnEl.className = "w-full flex items-center gap-3 px-4 py-3 bg-primary text-white rounded-full text-left font-bold transition-all";
+        } else {
+          viewEl.classList.add("hidden");
+          btnEl.className = "w-full flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-primary/10 rounded-full text-left font-bold transition-colors";
+        }
+      });
+
+      if (tab === "logs") {
+        renderLogsTable();
+      }
+    }
+
+    // Render users table with filters
+    function renderUsersTable() {
+      const tbody = document.getElementById("userTableBody");
+      tbody.innerHTML = "";
+
+      const users = window.HynetDB.getUsers();
+      const searchQuery = document.getElementById("userSearchInput").value.toLowerCase();
+      const deptFilter = document.getElementById("deptFilter").value;
+
+      const filtered = users.filter(u => {
+        const matchesSearch = u.name.toLowerCase().includes(searchQuery) || 
+                              u.email.toLowerCase().includes(searchQuery) || 
+                              u.id.toLowerCase().includes(searchQuery);
+        const matchesDept = deptFilter === "Todos" || u.department === deptFilter;
+        return matchesSearch && matchesDept;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="5" class="px-6 py-10 text-center text-outline">
+              <span class="material-symbols-outlined text-3xl mb-2">person_off</span>
+              <p class="text-sm font-bold">No se encontraron usuarios coincidentes.</p>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      filtered.forEach(u => {
+        const statusClass = u.status === "Activo" ? "bg-emerald-100 text-emerald-800" : "bg-slate-200 text-slate-700";
+        
+        // Hide edit button for Lucía herself to prevent accidental lockout in this demo
+        const isSelf = u.id === "HYN-0001";
+        const editBtnHtml = isSelf ? "" : `
+          <button onclick="openEditModal('${u.id}')" class="text-primary font-bold hover:underline inline-flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+            <span class="material-symbols-outlined text-sm">edit</span>
+            Editar
+          </button>
+        `;
+
+        const row = document.createElement("tr");
+        row.className = "hover:bg-surface-container-low transition-colors group";
+        row.innerHTML = `
+          <td class="px-6 py-4">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full ${u.avatarColor} text-white flex items-center justify-center font-bold text-xs">
+                ${u.avatarText}
+              </div>
+              <div>
+                <p class="font-bold text-on-surface text-sm">${u.name}</p>
+                <p class="text-xs text-on-surface-variant font-mono">${u.id} • ${u.email}</p>
+              </div>
+            </div>
+          </td>
+          <td class="px-6 py-4">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider ${statusClass}">${u.status}</span>
+          </td>
+          <td class="px-6 py-4">
+            <span class="text-xs font-bold text-primary bg-primary/5 px-2.5 py-1 rounded-full border border-primary/10">${u.department}</span>
+          </td>
+          <td class="px-6 py-4">
+            <div class="flex items-center gap-2 text-xs">
+              <span class="material-symbols-outlined text-sm text-outline">${getRoleIcon(u.roleKey)}</span>
+              <span class="font-semibold text-on-surface-variant">${u.role}</span>
+            </div>
+          </td>
+          <td class="px-6 py-4 text-right">
+            ${editBtnHtml}
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    function getRoleIcon(key) {
+      if (key === "super_admin") return "admin_panel_settings";
+      if (key === "director") return "groups";
+      if (key === "tecnico") return "support_agent";
+      if (key === "auditor") return "shield";
+      return "person";
+    }
+
+    // Render audit logs
+    function renderLogsTable() {
+      const tbody = document.getElementById("logsTableBody");
+      tbody.innerHTML = "";
+
+      const logs = window.HynetDB.getAuditLogs();
+
+      logs.forEach(l => {
+        let statusStyle = "text-emerald-600";
+        if (l.status === "Fallo" || l.status === "Bloqueado") statusStyle = "text-red-600 font-bold";
+        else if (l.status.includes("Intrusión")) statusStyle = "text-rose-600 font-bold animate-pulse";
+
+        const formattedTime = new Date(l.timestamp).toLocaleString('es-ES', { 
+          hour: '2-digit', 
+          minute: '2-digit', 
+          second: '2-digit',
+          day: '2-digit', 
+          month: '2-digit' 
+        });
+
+        const row = document.createElement("tr");
+        row.className = "hover:bg-surface-container-low transition-colors";
+        row.innerHTML = `
+          <td class="px-4 py-2.5 text-outline whitespace-nowrap">${formattedTime}</td>
+          <td class="px-4 py-2.5 font-bold whitespace-nowrap text-on-surface">${l.username} <span class="text-[9px] text-outline font-normal">(${l.userId})</span></td>
+          <td class="px-4 py-2.5 text-primary font-bold whitespace-nowrap">${l.action}</td>
+          <td class="px-4 py-2.5 text-on-surface-variant max-w-xs truncate" title="${l.details}">${l.details}</td>
+          <td class="px-4 py-2.5 ${statusStyle} whitespace-nowrap">${l.status}</td>
+          <td class="px-4 py-2.5 text-outline whitespace-nowrap">${l.ip}</td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    // Filter Listeners Setup
+    function setupFilters() {
+      document.getElementById("userSearchInput").addEventListener("input", renderUsersTable);
+      document.getElementById("deptFilter").addEventListener("change", renderUsersTable);
+    }
+
+    // Modal Control
+    function openEditModal(userId) {
+      const users = window.HynetDB.getUsers();
+      const user = users.find(u => u.id === userId);
+      if (!user) return;
+
+      document.getElementById("editUserId").value = user.id;
+      document.getElementById("editUserName").value = user.name;
+      document.getElementById("editUserDept").value = user.department;
+      document.getElementById("editUserRole").value = user.role;
+      document.getElementById("editUserStatus").value = user.status;
+
+      document.getElementById("editModal").classList.remove("hidden");
+    }
+
+    function closeModal() {
+      document.getElementById("editModal").classList.add("hidden");
+      document.getElementById("editUserForm").reset();
+    }
+
+    // Save edited values
+    document.getElementById("editUserForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const id = document.getElementById("editUserId").value;
+      const dept = document.getElementById("editUserDept").value;
+      const role = document.getElementById("editUserRole").value;
+      const status = document.getElementById("editUserStatus").value;
+
+      const success = window.HynetDB.updateUserRoleAndDept(id, role, dept, status);
+      if (success) {
+        closeModal();
+        renderUsersTable();
+        renderLogsTable();
+      } else {
+        alert("Error al actualizar el usuario.");
+      }
+    });
+
+    window.clearAuditLogs = function() {
+      if (confirm("¿Está seguro de que desea limpiar todos los logs de auditoría del SOC? Esta acción es irreversible.")) {
+        localStorage.removeItem("hynet_audit_logs");
+        window.HynetDB.addAuditLog("HYN-0001", "Lucía Fernández", "Limpieza de Logs", "Historial de logs purgado por el súper administrador.", "Éxito");
+        renderLogsTable();
+      }
+    };
+  </script>
+</body>
+</html>

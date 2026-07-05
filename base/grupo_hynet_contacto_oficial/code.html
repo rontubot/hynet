@@ -1,0 +1,292 @@
+<!DOCTYPE html><html class="light" lang="es" style="width: 1280px; height: 1024px; overflow: hidden; position: relative;"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Contacto | GRUPO HYNET</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700;800;900&amp;family=Manrope:wght@400;500;700&amp;family=JetBrains+Mono:wght@700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#89ceff",
+                        "on-secondary-fixed-variant": "#454749",
+                        "on-secondary-container": "#636467",
+                        "surface-dim": "#d8dadc",
+                        "surface": "#f7f9fb",
+                        "secondary-fixed-dim": "#c6c6c9",
+                        "on-secondary-fixed": "#1a1c1e",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#5d5e61",
+                        "on-tertiary-container": "#fdfcff",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#004c6e",
+                        "primary": "#00628d",
+                        "on-surface-variant": "#3e4850",
+                        "inverse-primary": "#89ceff",
+                        "secondary-container": "#e2e2e5",
+                        "on-primary-fixed": "#001e2f",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#c9e6ff",
+                        "on-tertiary-fixed-variant": "#39485a",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container": "#eceef0",
+                        "tertiary-container": "#677689",
+                        "tertiary-fixed-dim": "#b9c8de",
+                        "tertiary-fixed": "#d4e4fa",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#bec8d1",
+                        "outline": "#6f7881",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed": "#e2e2e5",
+                        "surface-variant": "#e0e3e5",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#0d1c2d",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary-container": "#fcfcff",
+                        "tertiary": "#4f5d70",
+                        "surface-bright": "#f7f9fb",
+                        "primary-container": "#007cb2",
+                        "on-surface": "#191c1e",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-background": "#191c1e",
+                        "surface-tint": "#006491",
+                        "background": "#f7f9fb",
+                        "inverse-surface": "#2d3133",
+                        "brand-hynet": "#0099da"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "grid-columns": "12",
+                        "section-gap": "80px",
+                        "gutter": "16px",
+                        "element-gap": "16px",
+                        "container-padding": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Hanken Grotesk"],
+                        "headline-xl": ["Hanken Grotesk"],
+                        "body-md": ["Manrope"],
+                        "label-caps": ["JetBrains Mono"],
+                        "body-lg": ["Manrope"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .form-input-focus:focus {
+            border-color: #0099da;
+            box-shadow: 0 0 0 2px rgba(0, 153, 218, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-on-surface/80 backdrop-blur-xl">
+<nav class="flex justify-between items-center px-container-padding py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<img alt="Grupo Hynet Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLtP7Ucuqlkq0Epapi081ZsTqatFyE_3ya1KwjDRqBIZU7HmFYjEK43_0ZOZISca1Xm3joDsffZjeYJPg2InOnS6HzDacoeIKLmptxr1I4r96QD-D5ITvJou9HXqVRNJjw1NDFiw2E6AvMvmHi7f6qdkOAtht1y3_gC_Px0GwqtFaHoU34hx27CGHWLGV-hmEb25MTHmkn2y2Bagos-hH_VSt8FjXfql74jjqluFwBwc3RrLMn-Bc0rp1Psp">
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Nosotros</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Servicios</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Soluciones</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">RRHH</a>
+<a class="text-primary font-bold border-b-2 border-primary font-body-md" href="#">Contacto</a>
+<a class="bg-primary text-on-primary px-6 py-2 rounded-full font-bold hover:scale-105 transition-transform duration-200" href="http://ticket.hynet.com.ar/">Soporte</a>
+</div>
+<button class="md:hidden p-2 text-on-surface-variant">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+</header>
+<main class="pt-32 pb-section-gap">
+<div class="max-w-7xl mx-auto px-container-padding">
+<!-- Hero Section -->
+<section class="mb-section-gap">
+<div class="max-w-3xl">
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-6 leading-tight text-3xl font-bold">
+                        ¿En qué podemos ayudarte?
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        A la brevedad uno de los especialistas del equipo estará contactándose para brindarte la atención que necesites.
+                    </p>
+</div>
+</section>
+<!-- Contact Grid (Bento Style) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+<!-- Form Container -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-8 md:p-12 rounded-xl shadow-[0px_10px_30px_rgba(0,0,0,0.04)] border border-outline-variant/30">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-outline uppercase">Nombre y Apellido</label>
+<input class="w-full px-6 py-4 rounded-full border border-outline-variant bg-surface-bright text-on-surface placeholder:text-outline-variant form-input-focus transition-all outline-none" placeholder="Tu nombre completo" type="text">
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-outline uppercase">Empresa</label>
+<input class="w-full px-6 py-4 rounded-full border border-outline-variant bg-surface-bright text-on-surface placeholder:text-outline-variant form-input-focus transition-all outline-none" placeholder="Nombre de tu organización" type="text">
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-outline uppercase">País</label>
+<input class="w-full px-6 py-4 rounded-full border border-outline-variant bg-surface-bright text-on-surface placeholder:text-outline-variant form-input-focus transition-all outline-none" placeholder="Selecciona tu país" type="text">
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-outline uppercase">Teléfono (Opcional)</label>
+<input class="w-full px-6 py-4 rounded-full border border-outline-variant bg-surface-bright text-on-surface placeholder:text-outline-variant form-input-focus transition-all outline-none" placeholder="+54..." type="tel">
+</div>
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="font-label-caps text-label-caps text-outline uppercase">Email</label>
+<input class="w-full px-6 py-4 rounded-full border border-outline-variant bg-surface-bright text-on-surface placeholder:text-outline-variant form-input-focus transition-all outline-none" placeholder="correo@empresa.com" type="email">
+</div>
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="font-label-caps text-label-caps text-outline uppercase">Mensaje</label>
+<textarea class="w-full px-6 py-4 rounded-xl border border-outline-variant bg-surface-bright text-on-surface placeholder:text-outline-variant form-input-focus transition-all outline-none resize-none" placeholder="¿Cómo podemos colaborar en tu proyecto?" rows="4"></textarea>
+</div>
+<div class="md:col-span-2 pt-4">
+<button class="w-full md:w-auto px-12 py-4 bg-brand-hynet text-white font-bold rounded-full hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-lg shadow-brand-hynet/20" type="submit">
+                                ENVIAR
+                            </button>
+</div>
+</form>
+</div>
+<!-- Visual & Locations -->
+<div class="lg:col-span-5 flex flex-col gap-8">
+<!-- Dynamic Image Card -->
+<div class="relative h-[300px] w-full rounded-xl overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A professional, modern glass-walled boardroom in a high-rise building with a panoramic city view at sunset. The interior features sleek ergonomic chairs, a large marble conference table, and cutting-edge technology displays. The atmosphere is sophisticated, authoritative, and clean, perfectly capturing the corporate fintech aesthetic of high-growth technology consulting. Bright high-key lighting illuminates the space with a sense of clarity and forward-thinking precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMKTkvBahNmCOy7fVDeyldkJuyMIMlYbOU6IJ9fb2CDoj_PVs6Xu12qXRWdu7oxd_JCDqhro9V2sexsLU9BrVhTQo0PD6PSgp_j0dg14oaHcb2ECLy65ypilGiRHDixgzVQOVp046OOxMLj2Vv95Z1ECTLcp0OaZC6Vv26B1UWghqrfYx8WS4UlJ_l_i-Jdjwe9fdM5u4DkcVP6CdtktnGraSWGyNcXEocYN021IsysByCsFMhrr0T8cJHKzdlU3UCG8hu9H9ppOmq">
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-surface">
+<p class="font-label-caps text-label-caps opacity-80 uppercase mb-1">Global Operations</p>
+<p class="font-headline-lg text-headline-lg">Hynet Intelligence</p>
+</div>
+</div>
+<!-- Locations Grid -->
+<div class="grid grid-cols-1 gap-6">
+<!-- Argentina -->
+<div class="flex items-start gap-4 p-6 bg-surface-container-low rounded-xl border border-outline-variant/20 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl">location_on</span>
+<div>
+<h3 class="font-bold text-lg mb-1">ARGENTINA</h3>
+<p class="text-on-surface-variant text-sm">Moreno 490 Piso 9 | C1091AAJ<br>Ciudad Autónoma de Buenos Aires</p>
+</div>
+</div>
+<!-- Colombia -->
+<div class="flex items-start gap-4 p-6 bg-surface-container-low rounded-xl border border-outline-variant/20 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl">location_on</span>
+<div>
+<h3 class="font-bold text-lg mb-1">COLOMBIA</h3>
+<p class="text-on-surface-variant text-sm">Calle 100 # 8A - 37, Torre A, Oficinas 1102/3<br>Ed. WTC | Bogotá DC</p>
+</div>
+</div>
+<!-- USA -->
+<div class="flex items-start gap-4 p-6 bg-surface-container-low rounded-xl border border-outline-variant/20 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl">location_on</span>
+<div>
+<h3 class="font-bold text-lg mb-1">ESTADOS UNIDOS</h3>
+<p class="text-on-surface-variant text-sm">2789 NW 82nd Avenue | CP 33122<br>Doral FL, United States</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-on-surface text-surface py-20 px-container-padding">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+<div class="md:col-span-5">
+<img alt="Hynet Logo Light" class="h-10 mb-6 brightness-0 invert" src="https://lh3.googleusercontent.com/aida/AP1WRLtP7Ucuqlkq0Epapi081ZsTqatFyE_3ya1KwjDRqBIZU7HmFYjEK43_0ZOZISca1Xm3joDsffZjeYJPg2InOnS6HzDacoeIKLmptxr1I4r96QD-D5ITvJou9HXqVRNJjw1NDFiw2E6AvMvmHi7f6qdkOAtht1y3_gC_Px0GwqtFaHoU34hx27CGHWLGV-hmEb25MTHmkn2y2Bagos-hH_VSt8FjXfql74jjqluFwBwc3RrLMn-Bc0rp1Psp">
+<p class="font-body-md opacity-60 max-w-sm mb-8">
+                        Soluciones integrales en sistemas que buscan optimizar el negocio de nuestros clientes mediante mejora continua.
+                    </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-surface/20 flex items-center justify-center hover:bg-brand-hynet hover:border-brand-hynet transition-all" href="https://www.linkedin.com/company/hynet-s.a./">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+</div>
+</div>
+<div class="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
+<div>
+<h4 class="font-bold text-lg mb-6">Empresa</h4>
+<ul class="space-y-4 opacity-60">
+<li class=""><a class="hover:opacity-100 transition-opacity" href="#">Nosotros</a></li>
+<li class=""><a class="hover:opacity-100 transition-opacity" href="#">Trayectoria</a></li>
+<li class=""><a class="hover:opacity-100 transition-opacity" href="#">KAIZEN</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-6">Soluciones</h4>
+<ul class="space-y-4 opacity-60">
+<li class=""><a class="hover:opacity-100 transition-opacity" href="#">Ciberseguridad</a></li>
+<li class=""><a class="hover:opacity-100 transition-opacity" href="#">Infraestructura</a></li>
+<li class=""><a class="hover:opacity-100 transition-opacity" href="#">Networking</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-6">Recursos</h4>
+<ul class="space-y-4 opacity-60">
+<li class=""><a class="hover:opacity-100 transition-opacity" href="#">Soporte Técnico</a></li>
+<li class=""><a class="hover:opacity-100 transition-opacity" href="#">Learning Center</a></li>
+<li class=""><a class="hover:opacity-100 transition-opacity" href="#">RRHH</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-surface/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-40">
+<p class="">© 2024 GRUPO HYNET. Todos los derechos reservados.</p>
+<div class="flex gap-6">
+<a class="hover:underline" href="#">Privacy Policy</a>
+<a class="hover:underline" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for form inputs
+        document.querySelectorAll('input, textarea').forEach(el => {
+            el.addEventListener('focus', () => {
+                el.parentElement.querySelector('label').classList.replace('text-outline', 'text-brand-hynet');
+            });
+            el.addEventListener('blur', () => {
+                el.parentElement.querySelector('label').classList.replace('text-brand-hynet', 'text-outline');
+            });
+        });
+
+        // Simple form submission animation
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span>';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = '¡ENVIADO!';
+                btn.classList.replace('bg-brand-hynet', 'bg-green-600');
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.replace('bg-green-600', 'bg-brand-hynet');
+                    btn.disabled = false;
+                }, 3000);
+            }, 1500);
+        });
+    </script>
+
+
+<div id="snapdom-sandbox" data-snapdom-sandbox="true" aria-hidden="true" style="position: absolute; left: -9999px; top: -9999px; width: 0px; height: 0px; overflow: hidden;"></div></body></html>

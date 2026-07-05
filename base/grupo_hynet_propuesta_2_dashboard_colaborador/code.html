@@ -1,0 +1,325 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>GRUPO HYNET | Dashboard de Colaborador</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700;800;900&amp;family=Manrope:wght@400;500;700&amp;family=JetBrains+Mono:wght@700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;family=Manrope:wght@100..900&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2d3133",
+                    "tertiary-fixed-dim": "#b9c8de",
+                    "surface-container-high": "#e6e8ea",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#d4e4fa",
+                    "on-primary-fixed-variant": "#004c6e",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#fcfcff",
+                    "on-secondary-fixed-variant": "#454749",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary-container": "#007cb2",
+                    "primary-fixed": "#c9e6ff",
+                    "primary-fixed-dim": "#89ceff",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#bec8d1",
+                    "outline": "#6f7881",
+                    "error": "#ba1a1a",
+                    "primary": "#00628d",
+                    "surface-dim": "#d8dadc",
+                    "surface-bright": "#f7f9fb",
+                    "on-background": "#191c1e",
+                    "surface-variant": "#e0e3e5",
+                    "on-secondary-container": "#636467",
+                    "tertiary": "#4f5d70",
+                    "secondary-fixed-dim": "#c6c6c9",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#0d1c2d",
+                    "secondary": "#5d5e61",
+                    "surface": "#f7f9fb",
+                    "on-secondary-fixed": "#1a1c1e",
+                    "background": "#f7f9fb",
+                    "secondary-fixed": "#e2e2e5",
+                    "on-tertiary-container": "#fdfcff",
+                    "on-primary-fixed": "#001e2f",
+                    "tertiary-container": "#677689",
+                    "surface-tint": "#006491",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#89ceff",
+                    "surface-container": "#eceef0",
+                    "on-surface-variant": "#3e4850",
+                    "inverse-on-surface": "#eff1f3",
+                    "secondary-container": "#e2e2e5",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#39485a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "80px",
+                    "element-gap": "16px",
+                    "gutter": "16px",
+                    "container-padding": "24px",
+                    "grid-columns": "12"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "body-lg": ["Manrope"],
+                    "label-caps": ["JetBrains Mono"],
+                    "body-md": ["Manrope"],
+                    "headline-xl": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl">
+<nav class="flex justify-between items-center px-container-padding py-4 max-w-full mx-auto">
+<div class="flex items-center gap-3"><img src="https://lh3.googleusercontent.com/aida/AP1WRLtP7Ucuqlkq0Epapi081ZsTqatFyE_3ya1KwjDRqBIZU7HmFYjEK43_0ZOZISca1Xm3joDsffZjeYJPg2InOnS6HzDacoeIKLmptxr1I4r96QD-D5ITvJou9HXqVRNJjw1NDFiw2E6AvMvmHi7f6qdkOAtht1y3_gC_Px0GwqtFaHoU34hx27CGHWLGV-hmEb25MTHmkn2y2Bagos-hH_VSt8FjXfql74jjqluFwBwc3RrLMn-Bc0rp1Psp" alt="GRUPO HYNET" class="h-10 w-auto object-contain"></div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary font-bold border-b-2 border-primary py-1 transition-all" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1" href="#">Directorio</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1" href="#">Recursos</a>
+<button class="bg-on-surface text-surface px-6 py-2 rounded-full font-bold hover:scale-105 transition-transform active:scale-95">Contáctanos</button>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-on-surface">menu</span>
+</div>
+</nav>
+</header>
+<main class="pt-24 pb-20 px-container-padding max-w-[1440px] mx-auto">
+<!-- Hero / User Profile Header -->
+<section class="mb-12 fade-in">
+<div class="relative w-full h-[320px] rounded-xl overflow-hidden mb-8">
+<img alt="Corporate professional environment" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLtP7Ucuqlkq0Epapi081ZsTqatFyE_3ya1KwjDRqBIZU7HmFYjEK43_0ZOZISca1Xm3joDsffZjeYJPg2InOnS6HzDacoeIKLmptxr1I4r96QD-D5ITvJou9HXqVRNJjw1NDFiw2E6AvMvmHi7f6qdkOAtht1y3_gC_Px0GwqtFaHoU34hx27CGHWLGV-hmEb25MTHmkn2y2Bagos-hH_VSt8FjXfql74jjqluFwBwc3RrLMn-Bc0rp1Psp">
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 flex items-end gap-6">
+<div class="w-24 h-24 rounded-full border-4 border-surface overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of a team member, confident and approachable, soft studio lighting, high-contrast corporate portrait style, light mode aesthetic, clean white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF12EMWkWBEOcYurfgGfHh0DgjhevPWy_LR7UQh6jRW0ukJiR9O22L75HMAY3LUA6yHYz0Slg_mfAe2Ie5-nIQaJFylKPQcuFTGKpN4XAL5d9q6jVR9CPbNbiSk-ExNVqG-39GVmYR8wdMpqqHgre63xG-Zwzk1sSk02NPTzjBsS2auwENdMebIV-XbXf1vk4ItdnVD_pqD_1Psy-zeXI7havfoS7u2adGfMQmboUQ-JocJM9I6dSpMniy1WKiTh_qG6wEcbqHVv_a">
+</div>
+<div class="text-surface mb-2">
+<p class="font-label-caps text-label-caps text-primary-fixed mb-1 uppercase">ESTADO: ACTIVO</p>
+<h1 class="font-headline-xl text-headline-xl">Ricardo Arispe</h1>
+<p class="font-body-lg text-body-lg opacity-90">Director de Operaciones Regionales • Turno Mañana (08:00 - 17:00)</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Layout Dashboard -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<!-- Responsabilidades Asignadas (Main Column) -->
+<div class="md:col-span-8 flex flex-col gap-6">
+<div class="flex items-center justify-between mb-2">
+<h2 class="font-headline-lg text-headline-lg">Responsabilidades Asignadas</h2>
+<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container px-3 py-1 rounded-full">LECTURA CRÍTICA</span>
+</div>
+<!-- Task Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant/30 hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<span class="bg-primary/10 text-primary px-2 py-1 rounded font-label-caps text-[10px]">PRIORIDAD ALTA</span>
+</div>
+<h3 class="font-bold text-lg mb-2">Auditoría de Protocolos</h3>
+<p class="text-on-surface-variant text-sm mb-4 leading-relaxed">Revisión exhaustiva de los protocolos de seguridad perimetral para el nodo central. Fecha límite: Viernes 18:00.</p>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[75%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant/30 hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-tertiary">groups</span>
+<span class="bg-tertiary-container/20 text-tertiary px-2 py-1 rounded font-label-caps text-[10px]">RECURRENTE</span>
+</div>
+<h3 class="font-bold text-lg mb-2">Coordinación de Equipo</h3>
+<p class="text-on-surface-variant text-sm mb-4 leading-relaxed">Sincronización diaria con los jefes de cuadrilla para asegurar la continuidad operativa en los sectores A y B.</p>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[40%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant/30 hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-1 rounded font-label-caps text-[10px]">COMPLETADO</span>
+</div>
+<h3 class="font-bold text-lg mb-2">Certificación ISO 27001</h3>
+<p class="text-on-surface-variant text-sm mb-4 leading-relaxed">Validación final de los activos digitales críticos para el cumplimiento de la norma internacional.</p>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-on-secondary-container w-full"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant/30 hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-error">notification_important</span>
+<span class="bg-error-container text-on-error-container px-2 py-1 rounded font-label-caps text-[10px]">URGENTE</span>
+</div>
+<h3 class="font-bold text-lg mb-2">Respuesta Incidentes</h3>
+<p class="text-on-surface-variant text-sm mb-4 leading-relaxed">Mantener canal abierto para la escalación de cualquier anomalía detectada en el portal de clientes.</p>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-error w-[15%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Column -->
+<div class="md:col-span-4 flex flex-col gap-8">
+<!-- Directorio Funcional -->
+<div class="bg-on-surface text-surface p-8 rounded-xl">
+<h2 class="font-headline-lg text-headline-lg mb-6">Directorio Funcional</h2>
+<div class="relative mb-6">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface/10 border-none rounded-full pl-10 pr-4 py-3 text-sm focus:ring-2 focus:ring-primary-fixed transition-all placeholder:text-outline-variant" placeholder="Buscar compañero o rol..." type="text">
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface font-bold">AL</div>
+<div>
+<p class="font-bold text-sm">Andrea López</p>
+<p class="text-xs text-outline-variant">Líder Técnica - Escalación Nivel 2</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary-fixed opacity-0 group-hover:opacity-100 transition-opacity">call</span>
+</div>
+<div class="flex items-center justify-between group cursor-pointer border-t border-surface/10 pt-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface font-bold">MP</div>
+<div>
+<p class="font-bold text-sm">Mario Pérez</p>
+<p class="text-xs text-outline-variant">Gerente de Cuentas - Comercial</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary-fixed opacity-0 group-hover:opacity-100 transition-opacity">call</span>
+</div>
+<div class="flex items-center justify-between group cursor-pointer border-t border-surface/10 pt-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface font-bold">ST</div>
+<div>
+<p class="font-bold text-sm">Soporte Técnico</p>
+<p class="text-xs text-outline-variant">Canal de Emergencia 24/7</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary-fixed opacity-0 group-hover:opacity-100 transition-opacity">contact_support</span>
+</div>
+</div>
+</div>
+<!-- Portal Access -->
+<div class="bg-surface-container-high p-8 rounded-xl border border-outline-variant/20">
+<h2 class="font-headline-lg text-headline-lg mb-6">Accesos al Portal</h2>
+<div class="grid grid-cols-2 gap-3">
+<a class="flex flex-col items-center gap-2 bg-surface p-4 rounded-lg text-center hover:bg-primary-container hover:text-surface transition-colors group" href="#">
+<span class="material-symbols-outlined text-primary group-hover:text-surface">vpn_lock</span>
+<span class="text-xs font-bold">VPN Seguro</span>
+</a>
+<a class="flex flex-col items-center gap-2 bg-surface p-4 rounded-lg text-center hover:bg-primary-container hover:text-surface transition-colors group" href="#">
+<span class="material-symbols-outlined text-primary group-hover:text-surface">account_balance_wallet</span>
+<span class="text-xs font-bold">Nómina Digital</span>
+</a>
+<a class="flex flex-col items-center gap-2 bg-surface p-4 rounded-lg text-center hover:bg-primary-container hover:text-surface transition-colors group" href="#">
+<span class="material-symbols-outlined text-primary group-hover:text-surface">school</span>
+<span class="text-xs font-bold">Hynet Academy</span>
+</a>
+<a class="flex flex-col items-center gap-2 bg-surface p-4 rounded-lg text-center hover:bg-primary-container hover:text-surface transition-colors group" href="#">
+<span class="material-symbols-outlined text-primary group-hover:text-surface">campaign</span>
+<span class="text-xs font-bold">Noticias Int.</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-on-surface text-surface w-full rounded-t-lg mt-section-gap">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-section-gap px-container-padding py-20 w-full max-w-[1440px] mx-auto">
+<div class="col-span-2 md:col-span-1">
+<span class="font-headline-lg text-headline-lg font-black text-surface block mb-4">GRUPO HYNET</span>
+<p class="text-outline-variant font-body-md max-w-xs">Elevando los estándares de seguridad y tecnología en toda la región.</p>
+</div>
+<div>
+<h4 class="font-bold text-primary-fixed mb-6 uppercase tracking-wider text-xs">Compañía</h4>
+<ul class="space-y-4 font-body-md text-outline-variant">
+<li class=""><a class="hover:text-surface transition-colors hover:underline decoration-primary-fixed decoration-2 underline-offset-4" href="#">About Us</a></li>
+<li class=""><a class="hover:text-surface transition-colors hover:underline decoration-primary-fixed decoration-2 underline-offset-4" href="#">Global Operations</a></li>
+<li class=""><a class="hover:text-surface transition-colors hover:underline decoration-primary-fixed decoration-2 underline-offset-4" href="#">Security Standards</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-primary-fixed mb-6 uppercase tracking-wider text-xs">Recursos</h4>
+<ul class="space-y-4 font-body-md text-outline-variant">
+<li class=""><a class="hover:text-surface transition-colors hover:underline decoration-primary-fixed decoration-2 underline-offset-4" href="#">Client Portal</a></li>
+<li class=""><a class="hover:text-surface transition-colors hover:underline decoration-primary-fixed decoration-2 underline-offset-4" href="#">Services</a></li>
+<li class=""><a class="hover:text-surface transition-colors hover:underline decoration-primary-fixed decoration-2 underline-offset-4" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="col-span-2 md:col-span-4 border-t border-surface/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-outline-variant text-sm">© 2024 Grupo Hynet. Secure by Design.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-outline-variant hover:text-primary-fixed cursor-pointer transition-colors">language</span>
+<span class="material-symbols-outlined text-outline-variant hover:text-primary-fixed cursor-pointer transition-colors">share</span>
+<span class="material-symbols-outlined text-outline-variant hover:text-primary-fixed cursor-pointer transition-colors">policy</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for hover effects on cards
+        document.querySelectorAll('.bg-surface-container-low').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Search bar interaction
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-105');
+            searchInput.parentElement.style.transition = 'all 0.3s ease';
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.</script></body></html>
