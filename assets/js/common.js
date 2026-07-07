@@ -283,12 +283,18 @@ function setupContactForms() {
     {
       id: "homeContactForm",
       nameId: "homeContactName",
+      companyId: "homeContactCompany",
+      countryId: "homeContactCountry",
+      phoneId: "homeContactPhone",
       emailId: "homeContactEmail",
       messageId: "homeContactMessage"
     },
     {
       id: "contactMainForm",
       nameId: "contactName",
+      companyId: "contactCompany",
+      countryId: "contactCountry",
+      phoneId: "contactPhone",
       emailId: "contactEmail",
       messageId: "contactMessage"
     }
@@ -314,11 +320,17 @@ function setupContactForms() {
 
       // Obtener valores de los inputs
       const nameVal = document.getElementById(formConfig.nameId).value;
+      const companyVal = document.getElementById(formConfig.companyId).value;
+      const countryVal = document.getElementById(formConfig.countryId).value;
+      const phoneVal = document.getElementById(formConfig.phoneId).value;
       const emailVal = document.getElementById(formConfig.emailId).value;
       const messageVal = document.getElementById(formConfig.messageId).value;
 
       console.log(`[Hynet Contact] Datos extraídos del formulario:`, {
         name: nameVal,
+        company: companyVal,
+        country: countryVal,
+        phone: phoneVal,
         email: emailVal,
         message: messageVal
       });
@@ -328,9 +340,9 @@ function setupContactForms() {
         name: nameVal,
         email: emailVal,
         message: messageVal,
-        company: "",
-        country: "",
-        phone: ""
+        company: companyVal,
+        country: countryVal,
+        phone: phoneVal
       };
 
       console.log(`[Hynet Contact] Payload completo generado para enviar:`, payload);
