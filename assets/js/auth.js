@@ -71,7 +71,7 @@ class HynetAuth {
     }
     sessionStorage.removeItem("hynet_session");
     // Redirect to home/login
-    window.location.href = "../index";
+    window.location.href = "../inicio";
   }
 
   // Check if session is active and user has rights

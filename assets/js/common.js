@@ -65,7 +65,7 @@ function setupHeaderSessionWidget() {
   const isInPortalFolder = window.location.pathname.includes("/portal/");
   const portalUrlPath = isInPortalFolder ? "login" : "portal/login";
   const dashboardUrlPath = isInPortalFolder ? "dashboard" : "portal/dashboard";
-  const homePath = isInPortalFolder ? "../index" : "index";
+  const homePath = isInPortalFolder ? "../inicio" : "inicio";
 
   // Check if we have a Portal link or we need to add/update it
   // Let's look for a button or link pointing to portal or named "Portal"
