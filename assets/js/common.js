@@ -239,6 +239,25 @@ function applyTheme(theme) {
     document.documentElement.classList.add("light");
     document.documentElement.classList.remove("dark");
   }
+  updateLogos(theme);
+}
+
+function updateLogos(theme) {
+  const images = document.querySelectorAll("img");
+  images.forEach(img => {
+    const src = img.getAttribute("src");
+    if (!src) return;
+    
+    if (theme === "dark") {
+      if (src.includes("Logo-Hynet25-Color_100px.png")) {
+        img.setAttribute("src", src.replace("Logo-Hynet25-Color_100px.png", "Logo-Hynet25-Color_blanco.png"));
+      }
+    } else {
+      if (src.includes("Logo-Hynet25-Color_blanco.png")) {
+        img.setAttribute("src", src.replace("Logo-Hynet25-Color_blanco.png", "Logo-Hynet25-Color_100px.png"));
+      }
+    }
+  });
 }
 
 function updateToggleBtnIcons(theme) {
