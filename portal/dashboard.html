@@ -30,7 +30,7 @@
   <script>
     // Protection before load
     if (!window.HynetAuth.getCurrentUser()) {
-      window.location.href = "login.html";
+      window.location.href = "login";
     }
   </script>
   
@@ -121,7 +121,7 @@
   <!-- TopAppBar -->
   <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 glass-nav">
     <nav class="flex justify-between items-center px-6 py-4 max-w-full mx-auto">
-      <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='../index.html'">
+      <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='../index'">
         <img src="../assets/images/Logo-Hynet25-Color_100px.png" alt="GRUPO HYNET" class="h-10 w-auto object-contain">
       </div>
       <div class="hidden md:flex items-center gap-8">
@@ -129,7 +129,7 @@
         <a class="text-on-surface-variant hover:text-primary transition-colors py-1 font-semibold" href="#directorio-section">Directorio</a>
         <a class="text-on-surface-variant hover:text-primary transition-colors py-1 font-semibold" href="#accesos-section">Recursos</a>
         <!-- Dynamically injected Admin link -->
-        <a id="adminMenuLink" class="hidden text-red-600 hover:text-red-800 font-bold border border-red-200 bg-red-50 px-4 py-1 rounded-full transition-colors" href="admin.html">Panel Admin</a>
+        <a id="adminMenuLink" class="hidden text-red-600 hover:text-red-800 font-bold border border-red-200 bg-red-50 px-4 py-1 rounded-full transition-colors" href="admin">Panel Admin</a>
         <button onclick="window.HynetAuth.logout()" class="bg-slate-800 hover:bg-black text-white px-6 py-2 rounded-full font-bold hover:scale-105 transition-transform active:scale-95 text-xs font-label-caps">Cerrar Sesión</button>
       </div>
       <div class="md:hidden flex items-center gap-3">

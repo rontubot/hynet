@@ -63,9 +63,9 @@ function setupHeaderSessionWidget() {
 
   // Let's check if we are in a subfolder (portal/) or at root
   const isInPortalFolder = window.location.pathname.includes("/portal/");
-  const portalUrlPath = isInPortalFolder ? "login.html" : "portal/login.html";
-  const dashboardUrlPath = isInPortalFolder ? "dashboard.html" : "portal/dashboard.html";
-  const homePath = isInPortalFolder ? "../index.html" : "index.html";
+  const portalUrlPath = isInPortalFolder ? "login" : "portal/login";
+  const dashboardUrlPath = isInPortalFolder ? "dashboard" : "portal/dashboard";
+  const homePath = isInPortalFolder ? "../index" : "index";
 
   // Check if we have a Portal link or we need to add/update it
   // Let's look for a button or link pointing to portal or named "Portal"
@@ -73,7 +73,7 @@ function setupHeaderSessionWidget() {
   const linksAndBtns = desktopNav.querySelectorAll("a, button");
   linksAndBtns.forEach(el => {
     const txt = el.textContent.toLowerCase();
-    if (txt.includes("portal") || txt.includes("login") || el.getAttribute("href")?.includes("login.html")) {
+    if (txt.includes("portal") || txt.includes("login") || el.getAttribute("href")?.includes("login")) {
       portalBtn = el;
     }
   });
@@ -205,7 +205,7 @@ function setupThemeToggle() {
   if (desktopNav) {
     if (!document.getElementById("themeToggleBtn")) {
       const toggleBtn = createThemeToggleBtn("themeToggleBtn");
-      const portalBtn = desktopNav.querySelector("a.bg-primary, a[href*='login.html'], button.bg-primary");
+      const portalBtn = desktopNav.querySelector("a.bg-primary, a[href*='login'], button.bg-primary");
       if (portalBtn) {
         desktopNav.insertBefore(toggleBtn, portalBtn);
       } else {

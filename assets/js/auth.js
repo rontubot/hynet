@@ -71,7 +71,7 @@ class HynetAuth {
     }
     sessionStorage.removeItem("hynet_session");
     // Redirect to home/login
-    window.location.href = "../index.html";
+    window.location.href = "../index";
   }
 
   // Check if session is active and user has rights
@@ -80,7 +80,7 @@ class HynetAuth {
     
     // Redirect to login if no session exists
     if (!user) {
-      window.location.href = "login.html";
+      window.location.href = "login";
       return false;
     }
 
@@ -89,7 +89,7 @@ class HynetAuth {
     const freshUser = freshUsers.find(u => u.id === user.id);
     if (!freshUser || freshUser.status !== "Activo") {
       sessionStorage.removeItem("hynet_session");
-      window.location.href = "login.html?inactive=true";
+      window.location.href = "login?inactive=true";
       return false;
     }
 
@@ -105,7 +105,7 @@ class HynetAuth {
       );
       
       // Redirect back to dashboard with error parameter
-      window.location.href = "dashboard.html?denied=true";
+      window.location.href = "dashboard?denied=true";
       return false;
     }
 

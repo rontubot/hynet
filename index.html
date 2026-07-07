@@ -114,14 +114,14 @@
   <!-- TopAppBar -->
   <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-sm glass-nav">
     <nav class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
-      <div class="flex items-center gap-2 cursor-pointer" onclick="window.location.href='index.html'">
+      <div class="flex items-center gap-2 cursor-pointer" onclick="window.location.href='index'">
         <img alt="Hynet Logo" class="h-10 w-auto" src="assets/images/Logo-Hynet25-Color_100px.png">
       </div>
       <div class="hidden md:flex gap-8 items-center">
-        <a class="font-label-caps text-xs text-on-surface-variant hover:text-primary transition-colors" href="nosotros.html">NOSOTROS</a>
-        <a class="font-label-caps text-xs text-on-surface-variant hover:text-primary transition-colors" href="servicios.html">SERVICIOS</a>
-        <a class="font-label-caps text-xs text-on-surface-variant hover:text-primary transition-colors" href="soluciones.html">SOLUCIONES</a>
-        <a class="font-label-caps text-xs text-on-surface-variant hover:text-primary transition-colors" href="contacto.html">CONTACTO</a>
+        <a class="font-label-caps text-xs text-on-surface-variant hover:text-primary transition-colors" href="nosotros">NOSOTROS</a>
+        <a class="font-label-caps text-xs text-on-surface-variant hover:text-primary transition-colors" href="servicios">SERVICIOS</a>
+        <a class="font-label-caps text-xs text-on-surface-variant hover:text-primary transition-colors" href="soluciones">SOLUCIONES</a>
+        <a class="font-label-caps text-xs text-on-surface-variant hover:text-primary transition-colors" href="contacto">CONTACTO</a>
         <!-- The header session widget in common.js will dynamically append the "Portal Interno" button / dropdown here -->
       </div>
       <button class="md:hidden text-on-surface p-2">
@@ -143,10 +143,10 @@
           Somos el puente entre la infraestructura tradicional y el futuro digital. Transformamos organizaciones a través de la consultoría estratégica y la implementación técnica de primer nivel.
         </p>
         <div class="flex flex-wrap gap-4">
-          <button onclick="window.location.href='servicios.html'" class="bg-primary hover:bg-primary-container text-white px-8 py-4 rounded-xl font-label-caps text-xs tracking-wider transition-all hover:scale-105 shadow-lg shadow-primary/25">
+          <button onclick="window.location.href='servicios'" class="bg-primary hover:bg-primary-container text-white px-8 py-4 rounded-xl font-label-caps text-xs tracking-wider transition-all hover:scale-105 shadow-lg shadow-primary/25">
             NUESTRA PROPUESTA
           </button>
-          <button onclick="window.location.href='nosotros.html#kaizen'" class="border border-white/30 text-white px-8 py-4 rounded-xl font-label-caps text-xs tracking-wider hover:bg-white/10 transition-all hover:scale-105">
+          <button onclick="window.location.href='nosotros#kaizen'" class="border border-white/30 text-white px-8 py-4 rounded-xl font-label-caps text-xs tracking-wider hover:bg-white/10 transition-all hover:scale-105">
             CONOCÉ EL MÉTODO
           </button>
         </div>
@@ -184,7 +184,7 @@
           <span class="font-label-caps text-xs text-primary tracking-widest uppercase block mb-2 font-bold">NUESTRO PORTFOLIO</span>
           <h2 class="text-3xl md:text-5xl font-black tracking-tight border-l-8 border-primary pl-6">Nuestros Servicios</h2>
         </div>
-        <a href="servicios.html" class="text-primary font-bold hover:underline mt-4 md:mt-0 inline-flex items-center gap-2">
+        <a href="servicios" class="text-primary font-bold hover:underline mt-4 md:mt-0 inline-flex items-center gap-2">
           Ver todos los servicios <span class="material-symbols-outlined">arrow_forward</span>
         </a>
       </div>
@@ -200,7 +200,7 @@
             <span class="bg-primary/10 text-primary px-3 py-1 rounded-full font-label-caps text-[10px] mb-4 inline-block font-bold">MÁXIMA DISPONIBILIDAD</span>
             <h3 class="text-2xl font-extrabold mb-4">Infraestructura &amp; Nube Híbrida</h3>
             <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Diseñamos arquitecturas escalables que permiten a su empresa crecer sin límites técnicos. Desde centros de datos locales hasta soluciones híbridas en la nube.</p>
-            <button onclick="window.location.href='soluciones.html#nube'" class="flex items-center gap-2 font-label-caps text-xs text-primary hover:translate-x-2 transition-transform font-bold">
+            <button onclick="window.location.href='soluciones#nube'" class="flex items-center gap-2 font-label-caps text-xs text-primary hover:translate-x-2 transition-transform font-bold">
               EXPLORAR SOLUCIONES <span class="material-symbols-outlined">arrow_forward</span>
             </button>
           </div>
@@ -382,7 +382,7 @@
   <footer class="bg-surface-container-highest w-full py-20 px-6">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto mb-16">
       <div class="md:col-span-1">
-        <div class="flex items-center gap-2 mb-6 cursor-pointer" onclick="window.location.href='index.html'">
+        <div class="flex items-center gap-2 mb-6 cursor-pointer" onclick="window.location.href='index'">
           <img alt="Logo Hynet" class="h-8 w-auto" src="assets/images/Logo-Hynet25-Color_100px.png">
         </div>
         <p class="text-sm text-on-surface-variant max-w-xs leading-relaxed">
@@ -392,19 +392,19 @@
       <div>
         <h5 class="font-label-caps text-xs font-bold mb-6 text-on-surface">SERVICIOS</h5>
         <ul class="space-y-4 text-sm text-on-surface-variant">
-          <li><a class="hover:text-primary transition-colors" href="servicios.html">Ciberseguridad Proactiva</a></li>
-          <li><a class="hover:text-primary transition-colors" href="servicios.html">Infraestructura Nube</a></li>
-          <li><a class="hover:text-primary transition-colors" href="servicios.html">Consultoría IT</a></li>
-          <li><a class="hover:text-primary transition-colors" href="servicios.html">Soporte SOC 24/7</a></li>
+          <li><a class="hover:text-primary transition-colors" href="servicios">Ciberseguridad Proactiva</a></li>
+          <li><a class="hover:text-primary transition-colors" href="servicios">Infraestructura Nube</a></li>
+          <li><a class="hover:text-primary transition-colors" href="servicios">Consultoría IT</a></li>
+          <li><a class="hover:text-primary transition-colors" href="servicios">Soporte SOC 24/7</a></li>
         </ul>
       </div>
       <div>
         <h5 class="font-label-caps text-xs font-bold mb-6 text-on-surface">EMPRESA</h5>
         <ul class="space-y-4 text-sm text-on-surface-variant">
-          <li><a class="hover:text-primary transition-colors" href="nosotros.html">Sobre Nosotros</a></li>
-          <li><a class="hover:text-primary transition-colors" href="nosotros.html#trayectoria">Trayectoria</a></li>
-          <li><a class="hover:text-primary transition-colors" href="nosotros.html#kaizen">Kaizen Método</a></li>
-          <li><a class="hover:text-primary transition-colors" href="contacto.html">Sedes Regionales</a></li>
+          <li><a class="hover:text-primary transition-colors" href="nosotros">Sobre Nosotros</a></li>
+          <li><a class="hover:text-primary transition-colors" href="nosotros#trayectoria">Trayectoria</a></li>
+          <li><a class="hover:text-primary transition-colors" href="nosotros#kaizen">Kaizen Método</a></li>
+          <li><a class="hover:text-primary transition-colors" href="contacto">Sedes Regionales</a></li>
         </ul>
       </div>
       <div>
@@ -413,7 +413,7 @@
           <a target="_blank" class="w-10 h-10 rounded-full bg-white border border-outline-variant/30 flex items-center justify-center hover:bg-primary hover:text-white transition-all text-on-surface-variant" href="https://www.linkedin.com/company/hynet-s.a./">
             <span class="material-symbols-outlined text-lg">share</span>
           </a>
-          <a class="w-10 h-10 rounded-full bg-white border border-outline-variant/30 flex items-center justify-center hover:bg-primary hover:text-white transition-all text-on-surface-variant" href="contacto.html">
+          <a class="w-10 h-10 rounded-full bg-white border border-outline-variant/30 flex items-center justify-center hover:bg-primary hover:text-white transition-all text-on-surface-variant" href="contacto">
             <span class="material-symbols-outlined text-lg">public</span>
           </a>
         </div>

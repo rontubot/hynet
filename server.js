@@ -4,7 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 // Serve static files from the root directory
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname), { extensions: ['html', 'htm'] }));
 
 // Fallback to index.html for undefined routes (or send 404)
 app.get('*', (req, res) => {
