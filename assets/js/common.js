@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileMenu();
   setupHeaderSessionWidget();
   setupScrollReveal();
+  setupContactForms();
 });
 
 // Setup responsive mobile navigation
@@ -269,5 +270,115 @@ function updateToggleBtnIcons(theme) {
   if (mobileLabel) {
     mobileLabel.textContent = theme === "dark" ? "light_mode" : "dark_mode";
   }
+}
+
+// Setup Contact Form Submissions for Home and Contact pages
+function setupContactForms() {
+  const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3Z8oF13p2rbbmysQJ5ihXtICyUuIUV1nG2pA6RBi95g9llTkRyk0FrU1gLSAHrleZ/exec";
+  const SECRET_TOKEN = "HYNET_2026_SECURE_API";
+
+  console.log("[Hynet Contact] Inicializando escucha de formularios de contacto...");
+
+  const forms = [
+    {
+      id: "homeContactForm",
+      nameId: "homeContactName",
+      emailId: "homeContactEmail",
+      messageId: "homeContactMessage"
+    },
+    {
+      id: "contactMainForm",
+      nameId: "contactName",
+      emailId: "contactEmail",
+      messageId: "contactMessage"
+    }
+  ];
+
+  forms.forEach(formConfig => {
+    const formEl = document.getElementById(formConfig.id);
+    if (!formEl) {
+      console.log(`[Hynet Contact] Formulario con ID "${formConfig.id}" no encontrado en esta página.`);
+      return;
+    }
+
+    console.log(`[Hynet Contact] Formulario detectado y listo: "${formConfig.id}"`);
+
+    formEl.addEventListener("submit", (e) => {
+      e.preventDefault();
+      console.log(`[Hynet Contact] Envío detectado en formulario: "${formConfig.id}"`);
+      
+      const btn = formEl.querySelector("button[type='submit']");
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Enviando...';
+      btn.disabled = true;
+
+      // Obtener valores de los inputs
+      const nameVal = document.getElementById(formConfig.nameId).value;
+      const emailVal = document.getElementById(formConfig.emailId).value;
+      const messageVal = document.getElementById(formConfig.messageId).value;
+
+      console.log(`[Hynet Contact] Datos extraídos del formulario:`, {
+        name: nameVal,
+        email: emailVal,
+        message: messageVal
+      });
+
+      const payload = {
+        token: SECRET_TOKEN,
+        name: nameVal,
+        email: emailVal,
+        message: messageVal,
+        company: "",
+        country: "",
+        phone: ""
+      };
+
+      console.log(`[Hynet Contact] Payload completo generado para enviar:`, payload);
+
+      if (GOOGLE_APPS_SCRIPT_URL) {
+        console.log(`[Hynet Contact] Iniciando petición POST HTTP (mode: no-cors) a URL: ${GOOGLE_APPS_SCRIPT_URL}`);
+        
+        fetch(GOOGLE_APPS_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        })
+        .then((response) => {
+          console.log(`[Hynet Contact] Petición enviada con éxito. Respuesta recibida (modo no-cors):`, response);
+          showSuccessState();
+        })
+        .catch(err => {
+          console.error(`[Hynet Contact] Error crítico al intentar enviar mediante fetch en ${formConfig.id}:`, err);
+          alert("Hubo un error de conexión al enviar el mensaje. Sin embargo, su consulta ha sido simulada en el cliente.");
+          showSuccessState();
+        });
+      } else {
+        console.warn("[Hynet Contact] GOOGLE_APPS_SCRIPT_URL está vacía. Simulando envío en cliente...");
+        setTimeout(() => {
+          showSuccessState();
+        }, 1500);
+      }
+
+      function showSuccessState() {
+        console.log(`[Hynet Contact] Mostrando estado de éxito en el botón de submit.`);
+        btn.innerHTML = '¡ENVIADO CORRECTAMENTE! <span class="material-symbols-outlined">done</span>';
+        
+        btn.classList.remove("bg-primary");
+        btn.classList.add("bg-emerald-600");
+        
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.classList.remove("bg-emerald-600");
+          btn.classList.add("bg-primary");
+          btn.disabled = false;
+          formEl.reset();
+          console.log(`[Hynet Contact] Formulario resetado y botón restablecido.`);
+        }, 3000);
+      }
+    });
+  });
 }
 

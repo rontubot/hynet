@@ -339,6 +339,24 @@
               <input required id="homeContactName" name="name" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-primary focus:ring-1 focus:ring-primary text-white outline-none transition-all placeholder:text-slate-500" placeholder="Ej: Juan Pérez" type="text">
             </div>
             <div class="space-y-2">
+              <label class="font-label-caps text-xs text-slate-300 font-bold block ml-2">EMPRESA</label>
+              <input required id="homeContactCompany" name="company" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-primary focus:ring-1 focus:ring-primary text-white outline-none transition-all placeholder:text-slate-500" placeholder="Nombre de tu organización" type="text">
+            </div>
+            <div class="space-y-2">
+              <label class="font-label-caps text-xs text-slate-300 font-bold block ml-2">PAÍS</label>
+              <select required id="homeContactCountry" name="country" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-primary focus:ring-1 focus:ring-primary text-white outline-none transition-all cursor-pointer">
+                <option value="" disabled selected class="bg-slate-900 text-slate-500">Selecciona tu país</option>
+                <option value="Argentina" class="bg-slate-900 text-white">Argentina</option>
+                <option value="Colombia" class="bg-slate-900 text-white">Colombia</option>
+                <option value="Estados Unidos" class="bg-slate-900 text-white">Estados Unidos</option>
+                <option value="Otro" class="bg-slate-900 text-white">Otro País</option>
+              </select>
+            </div>
+            <div class="space-y-2">
+              <label class="font-label-caps text-xs text-slate-300 font-bold block ml-2">TELÉFONO (OPCIONAL)</label>
+              <input id="homeContactPhone" name="phone" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-primary focus:ring-1 focus:ring-primary text-white outline-none transition-all placeholder:text-slate-500" placeholder="+54..." type="tel">
+            </div>
+            <div class="space-y-2 md:col-span-2">
               <label class="font-label-caps text-xs text-slate-300 font-bold block ml-2">EMAIL CORPORATIVO</label>
               <input required id="homeContactEmail" name="email" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-primary focus:ring-1 focus:ring-primary text-white outline-none transition-all placeholder:text-slate-500" placeholder="email@empresa.com" type="email">
             </div>
@@ -420,64 +438,6 @@
     </div>
   </footer>
 
-  <script>
-    // Configuration for real backend submission (Google Apps Script)
-    const GOOGLE_APPS_SCRIPT_URL = ""; // Paste your deployed Web App URL here
-    const SECRET_TOKEN = "HYNET_2026_SECURE_API";
-
-    // Form Submission Interaction
-    document.getElementById("homeContactForm").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const btn = e.target.querySelector("button[type='submit']");
-      const originalText = btn.innerHTML;
-      btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Enviando...';
-      btn.disabled = true;
-      
-      const payload = {
-        token: SECRET_TOKEN,
-        name: document.getElementById("homeContactName").value,
-        email: document.getElementById("homeContactEmail").value,
-        message: document.getElementById("homeContactMessage").value,
-        company: "",
-        country: "",
-        phone: ""
-      };
-
-      if (GOOGLE_APPS_SCRIPT_URL) {
-        fetch(GOOGLE_APPS_SCRIPT_URL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(payload)
-        })
-        .then(() => {
-          showSuccessState();
-        })
-        .catch(err => {
-          console.error("Error submitting home form:", err);
-          alert("Hubo un error de conexión al enviar el mensaje. Sin embargo, su consulta ha sido simulada en el cliente.");
-          showSuccessState();
-        });
-      } else {
-        setTimeout(() => {
-          showSuccessState();
-        }, 1500);
-      }
-
-      function showSuccessState() {
-        btn.innerHTML = '¡ENVIADO CORRECTAMENTE! <span class="material-symbols-outlined">done</span>';
-        btn.className = btn.className.replace("bg-primary", "bg-emerald-600").replace("hover:bg-primary-container", "");
-        
-        setTimeout(() => {
-          btn.innerHTML = originalText;
-          btn.className = btn.className.replace("bg-emerald-600", "bg-primary");
-          btn.disabled = false;
-          e.target.reset();
-        }, 3000);
-      }
-    });
-  </script>
+  <!-- Contact form submission is centralized and managed in assets/js/common.js -->
 </body>
 </html>
