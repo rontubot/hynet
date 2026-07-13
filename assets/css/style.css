@@ -84,11 +84,18 @@ body {
 
 /* Glass Nav Effect */
 .glass-nav {
-  background: var(--color-surface);
+  background: rgba(247, 249, 251, 0.75);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--color-outline-variant);
-  transition: background 0.3s ease, border-bottom 0.3s ease;
+  border: 1px solid var(--color-outline-variant);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+  transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.dark .glass-nav {
+  background: rgba(15, 17, 24, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
 }
 
 /* Infinite Scrolling Banner (Lemon style) */
@@ -187,7 +194,8 @@ button:active, .btn-hover-effect:active {
   transform: translateY(0);
 }
 
-/* Navbar Link Sleek Underline */
+/* Navbar Link Sleek Underline (deactivated for pill navigation style) */
+/* 
 header nav a {
   position: relative;
 }
@@ -213,6 +221,7 @@ header nav a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
+*/
 
 /* Custom Floating Animations */
 @keyframes subtle-float {

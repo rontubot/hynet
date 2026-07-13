@@ -104,7 +104,7 @@
           "fontFamily": {
             "sans": ["Inter", "sans-serif"],
             "body": ["Inter", "sans-serif"],
-            "label-caps": ["JetBrains Mono"],
+            "label-caps": ["Inter", "sans-serif"],
             "headline-xl": ["Inter"],
             "body-lg": ["Inter"],
             "headline-lg": ["Inter"],
@@ -119,21 +119,21 @@
 <body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen flex flex-col">
 
   <!-- TopAppBar -->
-  <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 glass-nav">
-    <nav class="flex justify-between items-center px-6 py-4 max-w-full mx-auto">
+  <header class="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-7xl z-50 glass-nav rounded-full">
+    <nav class="flex justify-between items-center px-8 py-3 mx-auto">
       <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='../inicio'">
-        <img src="../assets/images/Logo-Hynet25-Color_100px.png" alt="GRUPO HYNET" class="h-10 w-auto object-contain">
+        <img src="../assets/images/Logo-Hynet25-Color_100px.png" alt="GRUPO HYNET" class="h-9 w-auto object-contain">
       </div>
-      <div class="hidden md:flex items-center gap-8">
-        <a class="text-primary font-bold border-b-2 border-primary py-1 transition-all" href="#">Dashboard</a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors py-1 font-semibold" href="#directorio-section">Directorio</a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors py-1 font-semibold" href="#accesos-section">Recursos</a>
+      <div class="hidden md:flex items-center gap-6">
+        <a class="text-sm font-semibold text-primary bg-primary/10 dark:bg-primary/20 px-3.5 py-1.5 rounded-full transition-all" href="#">Dashboard</a>
+        <a class="text-sm font-semibold text-on-surface-variant hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/15 px-3.5 py-1.5 rounded-full transition-all" href="#directorio-section">Directorio</a>
+        <a class="text-sm font-semibold text-on-surface-variant hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/15 px-3.5 py-1.5 rounded-full transition-all" href="#accesos-section">Recursos</a>
         <!-- Dynamically injected Admin link -->
-        <a id="adminMenuLink" class="hidden text-red-600 hover:text-red-800 font-bold border border-red-200 bg-red-50 px-4 py-1 rounded-full transition-colors" href="admin">Panel Admin</a>
-        <button onclick="window.HynetAuth.logout()" class="bg-slate-800 hover:bg-black text-white px-6 py-2 rounded-full font-bold hover:scale-105 transition-transform active:scale-95 text-xs font-label-caps">Cerrar Sesión</button>
+        <a id="adminMenuLink" class="hidden text-red-600 hover:text-red-800 font-bold border border-red-200 bg-red-50 px-4 py-1.5 rounded-full transition-colors text-sm" href="admin">Panel Admin</a>
+        <button onclick="window.HynetAuth.logout()" class="bg-slate-800 hover:bg-black text-white px-5 py-1.5 rounded-full font-semibold hover:scale-105 transition-all active:scale-95 text-xs">Cerrar Sesión</button>
       </div>
       <div class="md:hidden flex items-center gap-3">
-        <button onclick="window.HynetAuth.logout()" class="text-xs bg-slate-800 text-white px-3 py-1.5 rounded-full font-bold">Salir</button>
+        <button onclick="window.HynetAuth.logout()" class="text-xs bg-slate-800 text-white px-3 py-1.5 rounded-full font-bold hover:scale-105 active:scale-95 transition-all">Salir</button>
         <span class="material-symbols-outlined text-on-surface p-2 cursor-pointer" onclick="alert('Use la versión desktop para el menú extendido de navegación.')">menu</span>
       </div>
     </nav>

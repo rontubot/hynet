@@ -98,7 +98,7 @@
           "fontFamily": {
             "sans": ["Inter", "sans-serif"],
             "body": ["Inter", "sans-serif"],
-            "label-caps": ["JetBrains Mono"],
+            "label-caps": ["Inter", "sans-serif"],
             "headline-xl": ["Inter"],
             "body-lg": ["Inter"],
             "headline-lg": ["Inter"],
@@ -113,18 +113,19 @@
 <body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
 
   <!-- TopAppBar -->
-  <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-sm glass-nav">
-    <nav class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+  <header class="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-7xl z-50 glass-nav rounded-full">
+    <nav class="flex justify-between items-center px-6 py-3.5 mx-auto">
       <div class="flex items-center gap-2 cursor-pointer" onclick="window.location.href='inicio'">
-        <img alt="Hynet Logo" class="h-10 w-auto" src="assets/images/Logo-Hynet25-Color_100px.png">
+        <img alt="Hynet Logo" class="h-9 w-auto" src="assets/images/Logo-Hynet25-Color_100px.png">
       </div>
-      <div class="hidden md:flex gap-8 items-center">
-        <a class="font-label-caps text-xs text-on-surface-variant hover:text-primary transition-colors" href="nosotros">NOSOTROS</a>
-        <a class="font-label-caps text-xs text-on-surface-variant hover:text-primary transition-colors" href="servicios">SERVICIOS</a>
-        <a class="font-label-caps text-xs text-on-surface-variant hover:text-primary transition-colors" href="soluciones">SOLUCIONES</a>
-        <a class="font-label-caps text-xs text-primary font-bold border-b-2 border-primary py-1" href="contacto">CONTACTO</a>
+      <div class="hidden md:flex gap-6 items-center">
+        <a class="text-sm font-semibold text-on-surface-variant hover:text-primary transition-colors px-3.5 py-1.5 rounded-full hover:bg-primary/5 dark:hover:bg-primary/15" href="nosotros">Nosotros</a>
+        <a class="text-sm font-semibold text-on-surface-variant hover:text-primary transition-colors px-3.5 py-1.5 rounded-full hover:bg-primary/5 dark:hover:bg-primary/15" href="servicios">Servicios</a>
+        <a class="text-sm font-semibold text-on-surface-variant hover:text-primary transition-colors px-3.5 py-1.5 rounded-full hover:bg-primary/5 dark:hover:bg-primary/15" href="soluciones">Soluciones</a>
+        <a class="text-sm font-semibold text-primary bg-primary/10 dark:bg-primary/20 px-3.5 py-1.5 rounded-full" href="contacto">Contacto</a>
+        <!-- The header session widget in common.js will dynamically append the Theme Toggle and the "Portal Interno" button / dropdown here -->
       </div>
-      <button class="md:hidden text-on-surface p-2">
+      <button class="md:hidden text-on-surface p-2 hover:bg-surface-container rounded-full transition-colors">
         <span class="material-symbols-outlined">menu</span>
       </button>
     </nav>

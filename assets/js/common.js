@@ -21,7 +21,7 @@ function setupMobileMenu() {
     // Create mobile menu dynamically to keep public HTMLs clean
     mobileMenu = document.createElement("div");
     mobileMenu.id = "mobile-menu-container";
-    mobileMenu.className = "hidden fixed top-[72px] left-0 w-full bg-surface shadow-md z-40 border-b border-outline-variant/30 py-6 px-6 flex flex-col gap-6 md:hidden transition-all duration-300";
+    mobileMenu.className = "hidden fixed top-24 left-4 right-4 bg-surface/90 backdrop-blur-xl shadow-xl z-40 border border-outline-variant/50 p-6 rounded-2xl flex flex-col gap-2 md:hidden transition-all duration-300";
     
     // Get links from desktop navbar
     const links = document.querySelectorAll("header nav div.hidden.md\\:flex a");
@@ -30,7 +30,12 @@ function setupMobileMenu() {
       if (link.id === "themeToggleBtn" || link.classList.contains("bg-primary") || link.textContent.toLowerCase().includes("salir")) return;
       
       const clonedLink = link.cloneNode(true);
-      clonedLink.className = "font-label-caps text-label-caps text-on-surface-variant hover:text-primary py-2 border-b border-black/5";
+      const isActive = link.classList.contains("text-primary") && (link.classList.contains("bg-primary/10") || link.classList.contains("bg-primary/20") || link.classList.contains("border-b-2"));
+      if (isActive) {
+        clonedLink.className = "font-semibold text-sm text-primary bg-primary/10 dark:bg-primary/25 py-3 px-4 rounded-xl transition-all";
+      } else {
+        clonedLink.className = "font-semibold text-sm text-on-surface-variant hover:text-primary py-3 px-4 rounded-xl hover:bg-primary/5 dark:hover:bg-primary/15 transition-all";
+      }
       mobileMenu.appendChild(clonedLink);
     });
 
@@ -82,7 +87,7 @@ function setupHeaderSessionWidget() {
   if (!portalBtn && linksAndBtns.length > 0) {
     // We can change the last item or append a dedicated Portal item
     const portalAnchor = document.createElement("a");
-    portalAnchor.className = "bg-primary text-on-primary px-6 py-2 rounded-full font-label-caps text-label-caps hover:scale-105 active:scale-95 transition-all cursor-pointer";
+    portalAnchor.className = "bg-primary hover:bg-primary-container text-white px-5 py-2 rounded-full font-semibold text-sm hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30";
     portalAnchor.textContent = "Portal Interno";
     portalAnchor.href = portalUrlPath;
     desktopNav.appendChild(portalAnchor);
@@ -111,8 +116,8 @@ function setupHeaderSessionWidget() {
       
       // Optionally add a mini logout button next to it
       const logoutAnchor = document.createElement("a");
-      logoutAnchor.className = "desktop-logout-link text-xs font-label-caps text-outline hover:text-error transition-colors ml-2 cursor-pointer";
-      logoutAnchor.textContent = "SALIR";
+      logoutAnchor.className = "desktop-logout-link text-xs font-semibold text-outline hover:text-error transition-colors ml-4 cursor-pointer";
+      logoutAnchor.textContent = "Salir";
       logoutAnchor.addEventListener("click", (e) => {
         e.preventDefault();
         window.HynetAuth.logout();
@@ -141,7 +146,7 @@ function setupHeaderSessionWidget() {
     if (user) {
       // User is logged in! Add dashboard link and logout link
       const mobilePortalBtn = document.createElement("a");
-      mobilePortalBtn.className = "mobile-portal-btn w-full text-center py-4 rounded-full font-label-caps text-label-caps bg-primary text-on-primary flex items-center justify-center gap-2 cursor-pointer";
+      mobilePortalBtn.className = "mobile-portal-btn w-full text-center py-3 rounded-xl font-semibold text-sm bg-primary text-on-primary flex items-center justify-center gap-2 cursor-pointer hover:bg-primary-container transition-all mt-2";
       mobilePortalBtn.href = dashboardUrlPath;
       mobilePortalBtn.innerHTML = `
         <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -150,8 +155,8 @@ function setupHeaderSessionWidget() {
       mobileMenu.appendChild(mobilePortalBtn);
 
       const mobileLogoutBtn = document.createElement("a");
-      mobileLogoutBtn.className = "mobile-logout-btn w-full text-center py-2 text-xs font-label-caps text-outline hover:text-error transition-colors cursor-pointer";
-      mobileLogoutBtn.textContent = "SALIR DE LA SESIÓN";
+      mobileLogoutBtn.className = "mobile-logout-btn w-full text-center py-2 text-xs font-semibold text-outline hover:text-error transition-colors cursor-pointer mt-2";
+      mobileLogoutBtn.textContent = "Salir de la sesión";
       mobileLogoutBtn.addEventListener("click", (e) => {
         e.preventDefault();
         window.HynetAuth.logout();
@@ -160,7 +165,7 @@ function setupHeaderSessionWidget() {
     } else {
       // Not logged in! Add login link as a button
       const mobilePortalBtn = document.createElement("a");
-      mobilePortalBtn.className = "mobile-portal-btn w-full text-center py-4 rounded-full font-label-caps text-label-caps bg-primary text-on-primary block cursor-pointer";
+      mobilePortalBtn.className = "mobile-portal-btn w-full text-center py-3 rounded-xl font-semibold text-sm bg-primary text-on-primary block cursor-pointer hover:bg-primary-container transition-all mt-2";
       mobilePortalBtn.href = portalUrlPath;
       mobilePortalBtn.textContent = "Portal Interno";
       mobileMenu.appendChild(mobilePortalBtn);
@@ -221,9 +226,9 @@ function setupThemeToggle() {
       const toggleBtnMobile = document.createElement("button");
       toggleBtnMobile.id = "themeToggleBtnMobile";
       toggleBtnMobile.type = "button";
-      toggleBtnMobile.className = "flex items-center justify-between py-2 border-b border-black/5 font-label-caps text-label-caps text-on-surface-variant w-full text-left outline-none";
+      toggleBtnMobile.className = "flex items-center justify-between py-3 px-4 font-semibold text-sm text-on-surface-variant w-full text-left outline-none cursor-pointer hover:bg-primary/5 dark:hover:bg-primary/15 rounded-xl transition-all";
       toggleBtnMobile.innerHTML = `
-        <span>CAMBIAR TEMA</span>
+        <span>Cambiar Tema</span>
         <span class="material-symbols-outlined">${currentTheme === "dark" ? "light_mode" : "dark_mode"}</span>
       `;
       toggleBtnMobile.addEventListener("click", (e) => {
