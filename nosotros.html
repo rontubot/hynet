@@ -306,22 +306,24 @@
           
           <div class="h-80 bg-white/5 border border-white/10 rounded-xl relative flex items-center justify-center p-4 backdrop-blur-sm overflow-hidden">
             <!-- Dotted/Vector Map Container with Robinson Projection Aspect Ratio -->
-            <div class="relative w-full h-full aspect-[2/1] bg-no-repeat bg-center bg-contain" style="background-image: url('https://simplemaps.com/static/svg/world.svg'); filter: invert(1) opacity(0.15);">
+            <div class="relative w-full h-full aspect-[2/1]">
+              <!-- Map Background (As a separate sibling, styled in white with ~18% opacity for dark background integration) -->
+              <div class="absolute inset-0 bg-no-repeat bg-center bg-contain opacity-[0.18]" style="background-image: url('assets/images/world_map.svg');"></div>
               
               <!-- Miami, USA -->
-              <div class="absolute w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping left-[27%] top-[38%]"></div>
-              <div class="absolute w-2.5 h-2.5 bg-emerald-500 rounded-full left-[27%] top-[38%]"></div>
-              <span class="absolute text-[9px] font-semibold text-slate-300 left-[27%] top-[45%] whitespace-nowrap bg-slate-950/50 px-1.5 py-0.5 rounded">Miami, USA</span>
+              <div class="absolute w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping left-[27%] top-[38%] z-30"></div>
+              <div class="absolute w-2.5 h-2.5 bg-emerald-500 rounded-full left-[27%] top-[38%] z-30"></div>
+              <span class="absolute text-xs font-bold left-[27%] top-[46%] whitespace-nowrap px-2 py-1 rounded shadow-lg z-30" style="background-color: rgba(10, 15, 30, 0.85); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.15);">Miami, USA</span>
               
               <!-- Bogotá, CO -->
-              <div class="absolute w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping left-[29%] top-[55%]"></div>
-              <div class="absolute w-2.5 h-2.5 bg-emerald-500 rounded-full left-[29%] top-[55%]"></div>
-              <span class="absolute text-[9px] font-semibold text-slate-300 left-[29%] top-[62%] whitespace-nowrap bg-slate-950/50 px-1.5 py-0.5 rounded">Bogotá, CO</span>
+              <div class="absolute w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping left-[29%] top-[55%] z-30"></div>
+              <div class="absolute w-2.5 h-2.5 bg-emerald-500 rounded-full left-[29%] top-[55%] z-30"></div>
+              <span class="absolute text-xs font-bold left-[29%] top-[63%] whitespace-nowrap px-2 py-1 rounded shadow-lg z-30" style="background-color: rgba(10, 15, 30, 0.85); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.15);">Bogotá, CO</span>
               
               <!-- Buenos Aires, AR -->
-              <div class="absolute w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping left-[33%] top-[78%]"></div>
-              <div class="absolute w-2.5 h-2.5 bg-emerald-500 rounded-full left-[33%] top-[78%]"></div>
-              <span class="absolute text-[9px] font-semibold text-slate-300 left-[33%] top-[85%] whitespace-nowrap bg-slate-950/50 px-1.5 py-0.5 rounded">Buenos Aires, AR</span>
+              <div class="absolute w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping left-[33%] top-[78%] z-30"></div>
+              <div class="absolute w-2.5 h-2.5 bg-emerald-500 rounded-full left-[33%] top-[78%] z-30"></div>
+              <span class="absolute text-xs font-bold left-[33%] top-[86%] whitespace-nowrap px-2 py-1 rounded shadow-lg z-30" style="background-color: rgba(10, 15, 30, 0.85); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.15);">Buenos Aires, AR</span>
               
             </div>
           </div>
