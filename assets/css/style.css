@@ -83,19 +83,55 @@ body {
 /* Shared UI Components & Custom Animations */
 
 /* Glass Nav Effect */
-.glass-nav {
+header.glass-nav {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  border-top-width: 0;
+  border-bottom: 1px solid var(--color-outline-variant);
+  box-shadow: none;
   background: rgba(247, 249, 251, 0.75);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--color-outline-variant);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
-  transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.dark .glass-nav {
+.dark header.glass-nav {
   background: rgba(15, 17, 24, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Scrolled/Floating state */
+header.glass-nav.scrolled {
+  top: 1rem;
+  width: calc(100% - 2rem);
+  max-width: 80rem; /* max-w-7xl equivalent */
+  border-radius: 9999px;
+  border-width: 1px;
+  border-color: var(--color-outline-variant);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+}
+
+.dark header.glass-nav.scrolled {
+  border-color: rgba(255, 255, 255, 0.08);
   box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Nav padding transitions */
+header.glass-nav nav {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  transition: padding 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+header.glass-nav.scrolled nav {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 /* Infinite Scrolling Banner (Lemon style) */

@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileMenu();
   setupHeaderSessionWidget();
   setupThemeToggle();
+  setupHeaderScroll();
   setupScrollReveal();
   setupContactForms();
 });
@@ -54,6 +55,23 @@ function setupMobileMenu() {
       if (iconSpan) iconSpan.textContent = "menu";
     }
   });
+}
+
+// Manage dynamic scrolling state (floating pill vs flat top)
+function setupHeaderScroll() {
+  const header = document.querySelector("header.glass-nav");
+  if (!header) return;
+
+  const handleScroll = () => {
+    if (window.scrollY > 15) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  handleScroll(); // Trigger initial check
 }
 
 // Adjust Header Portal Button based on Session state

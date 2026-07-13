@@ -112,8 +112,8 @@
 <body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
 
   <!-- TopAppBar -->
-  <header class="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-7xl z-50 glass-nav rounded-full">
-    <nav class="flex justify-between items-center px-6 py-3.5 mx-auto">
+  <header class="fixed z-50 glass-nav">
+    <nav class="flex justify-between items-center px-6 mx-auto">
       <div class="flex items-center gap-2 cursor-pointer" onclick="window.location.href='inicio'">
         <img alt="Hynet Logo" class="h-9 w-auto" src="assets/images/Logo-Hynet25-Color_100px.png">
       </div>
@@ -132,9 +132,15 @@
 
   <main class="pt-20 overflow-x-hidden">
     <!-- Hero Section -->
-    <section class="min-h-[85vh] flex flex-col justify-center px-6 md:px-24 mb-section-gap relative fade-in" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2000'); background-size: cover; background-position: center center;">
-      <div class="absolute inset-0 bg-black/60 z-0"></div>
-      <div class="max-w-4xl z-10 relative">
+    <section class="min-h-[85vh] flex flex-col justify-center px-6 md:px-24 mb-section-gap relative overflow-hidden fade-in" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2000'); background-size: cover; background-position: center center;">
+      <!-- Video Background -->
+      <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+        <source src="assets/images/hynet_background.mp4" type="video/mp4">
+      </video>
+      <!-- Dark Overlay -->
+      <div class="absolute inset-0 bg-black/60 z-10"></div>
+      
+      <div class="max-w-4xl z-20 relative">
         <span class="font-label-caps text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-full mb-4 inline-block tracking-wider uppercase font-semibold">MÁS DE 20 AÑOS LIDERANDO EL MERCADO</span>
         <h1 class="text-4xl md:text-[72px] font-black leading-none mb-8 text-white tracking-tight">
           BRINDAMOS SOLUCIONES IT
